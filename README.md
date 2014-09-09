@@ -1,9 +1,9 @@
 iPReS
 =====
 
-[TOC]
+<img src="http://podaac.jpl.nasa.gov/sites/default/files/image/custom_thumbs/podaac_logo.png" align="centre" width="300" />
 
-= Introduction =
+#Introduction
 
 The Internationalization (i18n) Product Retrieval Service is a web service and client providing 
 i18n-type access to products and product metadata contained within [NASA JPL's](http://www.jpl.nasa.gov/) 
@@ -15,7 +15,7 @@ The software implements a [RESTful](http://en.wikipedia.org/wiki/Representationa
 Web-Services API](http://podaac.jpl.nasa.gov/ws/index.html). It then translates the product metadata into 
 a target language provided along with the intial call to the service. 
 
-= Supported Product Translations =
+#Supported Product Translations
 
 Currently products retrieved from PO.DAAC can be translated to the following languages:
 
