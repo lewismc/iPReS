@@ -65,5 +65,5 @@ Currently products retrieved from PO.DAAC can be translated to the following lan
  * vi == Vietnamese
  * cy == Welsh
  
-= License =
+#License
 iPReS is licnesed under the [Apache Software License v2.0](http://www.apache.org/licenses/LICENSE-2.0).
