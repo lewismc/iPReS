@@ -4,7 +4,6 @@ iPReS
 <img src="http://podaac.jpl.nasa.gov/sites/default/files/image/custom_thumbs/podaac_logo.png" align="centre" width="300" />
 
 #Introduction
-
 The Internationalization (i18n) Product Retrieval Service is a web service and client providing 
 i18n-type access to products and product metadata contained within [NASA JPL's](http://www.jpl.nasa.gov/) 
 [Physical Oceanography Distributed Active Archive Center](http://podaac.jpl.nasa.gov/) otherwise known as 
@@ -15,9 +14,11 @@ The software implements a [RESTful](http://en.wikipedia.org/wiki/Representationa
 Web-Services API](http://podaac.jpl.nasa.gov/ws/index.html). It then translates the product metadata into 
 a target language provided along with the intial call to the service. 
 
-#Supported Product Translations
+#Project Website
+The project website can be located at - http://lewismc.github.io/iPReS/
 
-Currently products retrieved from PO.DAAC can be translated to the following languages:
+#Supported Product Translations
+We aim to support the following list of language translations:
 
  * ar == Arabic
  * bg == Bulgarian
