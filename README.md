@@ -17,6 +17,9 @@ a target language provided along with the intial call to the service.
 #Project Website
 The project website can be located at - http://lewismc.github.io/iPReS/
 
+#Community Mailing List
+Please visit and subscribe to our [Google Group](https://groups.google.com/forum/#!forum/ipres-capstone) for all the project news.
+
 #Supported Product Translations
 We aim to support the following list of language translations:
 
