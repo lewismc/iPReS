@@ -7,17 +7,14 @@
             [ring.mock.request :as mock]))
 
 (deftest test-app
+
+  ;; Tests that the content returned is JSON.
   (testing "main route"
-    (let [response (app (mock/request :get "/"))]
+    (let [response (app (mock/request :get "/translator"))]
       (is (= (:status response) 200))
-      (is (= (:body response) "Hello World"))))
+      (is (= (:get-in response [:headers "Content-Type"]) "application-json"))))
 
+  ;; Tests that providing a bogus route returns a 404.
   (testing "not-found route"
-    (let [response (app (mock/request :get "/invalid"))]
+    (let [response (app (mock/request :get "bogus-route"))]
       (is (= (:status response) 404)))))
-
-;; Test written to always fail.
-;; Exists purely to demonstrate testing a single test.
-(deftest foo-test-always-fails
-  (testing "foo"
-    (is (= 1 2))))
