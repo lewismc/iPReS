@@ -28,7 +28,7 @@ To start a web server for the application, run:
     
 To play with it:
 
-    localhose:3000/translator?phillip carter
+    localhost:3000/translator?phillip carter
     ;; -> {"message":"hillippayartercay"}
 
 ## Running Tests
