@@ -5,4 +5,6 @@
 (deftest test-to-pig-latin
   (testing "happy cases"
     (is (= "orangeay" (to-pig-latin "orange")))
-    (is (= "hillippay" (to-pig-latin "phillip")))))
+    (is (= "hillippay" (to-pig-latin "phillip"))))
+  (testing "null case")
+    (is (= nil (to-pig-latin nil))))
