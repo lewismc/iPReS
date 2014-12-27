@@ -12,6 +12,7 @@
 (defn is-supported? [lang]
   (contains? core/langs lang))
 
+;; API routes for the iPReS Service.
 (defroutes api-routes
   (GET "/metadata/dataset"
        (response {:msg "hello"}))

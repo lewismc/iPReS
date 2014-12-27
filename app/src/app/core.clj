@@ -1,8 +1,6 @@
 (ns app.core)
 
-;; ISO 639.2 language codes
-;; Issues:
-;; - Klingon (plqaD)
+;; A map of the languages iPReS supports.
 (def langs {:en "english"
             :ar "arabic"
             :bg "bulgarian"
