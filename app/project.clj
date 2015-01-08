@@ -1,4 +1,4 @@
-(defproject demo "0.1.0-SNAPSHOT"
+(defproject app "0.1.0-SNAPSHOT"
   :description "iPReS app"
   :url "http://example.com/FIXME"
   :min-lein-version "2.0.0"
