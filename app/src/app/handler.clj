@@ -34,9 +34,9 @@
   http://podaac.jpl.nasa.gov/ws/metadata/dataset/index.html"
   [request]
   (let [supported-params [:datasetId :shortName :format]]
-     (and (contains? request :datasetId)
-          (contains? request :shortName)
-          (no-bogus-params? supported-params (keys request)))))
+    (and (contains? request :datasetId)
+         (contains? request :shortName)
+         (no-bogus-params? supported-params (keys request)))))
 
 (defn metadata-granule-is-valid?
   "Returns true if a request for an iPRes Metadata Granule
@@ -53,7 +53,7 @@
 
 (defn search-dataset-is-valid?
   "Returns true if a request for an iPReS Search Dataset
-  supplies the requried parameters, as detailed by:
+  supplies the appropriate parameters, as detailed by:
 
   http://podaac.jpl.nasa.gov/ws/search/dataset/index.html"
   [request]
@@ -61,7 +61,8 @@
                           :itemsPerPage :datasetId :shortName :instrument
                           :satellite :fileFormat :status :processLevel
                           :pretty :format :sortBy :bbox :full]]
-    (no-bogus-params? supported-params (keys request))))
+    (and (not (= request nil))
+         (no-bogus-params? supported-params (keys request)))))
 
 (defn search-granule-is-valid?
   "Returns true if a request for an iPReS Search Granule
@@ -95,7 +96,7 @@
          (contains? request :bbox)
          (contains? request :height)
          (contains? request :width)
-         (no-bogus-params? supported-params request))))
+         (no-bogus-params? supported-params (keys request)))))
 
 (defn extract-granule-is-valid?
   "Returns true if a request for an iPReS Extract Granule
@@ -120,13 +121,21 @@
          (if (metadata-granule-is-valid? request)
            (response {:msg (str "a granule for " lang)})
            (response {:msg "no kitty that's a bad kitty"})))
-    (GET "/search/dataset" [request]
-         (response {:msg "hello"}))
-    (GET "/search/granule" [request]
-         (response {:msg "hello"}))
-    (GET "/image/granule" [request]
-         (response {:msg "hello"}))
-    (GET "/extract/granule" [request]
+    (GET "/search/dataset" [& request]
+         (if (search-dataset-is-valid? request)
+           (response {:msg (str "a search for " lang)})
+           (response {:msg "hello"})))
+    (GET "/search/granule" [& request]
+         (if (search-granule-is-valid? request)
+           (response {:msg (str "a search granule for " lang)})
+           (response {:msg "hello"})))
+    (GET "/image/granule" [& request]
+         (if (image-granule-is-valid? request)
+           (response {:msg (str "an image granule for " lang)})
+           (response {:msg "hello"})))
+    (GET "/extract/granule" [& request]
+         (if (extract-granule-is-valid? request)
+           (response {:msg (str "an extract granule for " lang)}))
          (response {:msg "hello"}))
     (route/not-found
       (response {:msg "Page not found"}))))
