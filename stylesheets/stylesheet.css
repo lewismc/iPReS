@@ -73,7 +73,9 @@ header h2 {
   text-align: center;
   margin: 0;
 }
-
+#downloads {
+ text-align: center;
+}
 /* Main Content
 */
 
