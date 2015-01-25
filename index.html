@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <style>
+.list {  
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+}
+ol li {
+    margin: 20px 0;
+    font-size: 12px;
+}
+
+</style>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
 
@@ -8,15 +20,13 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
-    <title>Ipres by lewismc</title>
+    <title>iPReS</title>
   </head>
 
   <body>
-
-    <header>
+  <header>
       <div class="container">
-        <h1>Ipres</h1>
-        <h2>Internationalization (i18n) Product Retrieval Service</h2>
+      
 
         <section id="downloads">
           <a href="https://github.com/lewismc/iPReS/zipball/master" class="btn">Download as .zip</a>
@@ -28,38 +38,152 @@
 
     <div class="container">
       <section id="main_content">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<h2>
+<a name="top" class"anhor" href="#top"><span class="octicon octicon-link"></span></a>
+The Internationalization (i18n) Product Retrieval Service (iPReS)</h3><br>
 
 <h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Project Overview</h3>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<p>The Internationalization (i18n) Product Retrieval Service is a web service and client providing i18n-type access to products and product metadata contained 	within <a href="http://www.jpl.nasa.gov">NASA JPL's</a> <a href="http://podaac.jpl.nasa.gov">Physical Oceanography Distributed Active Archive Center</a>, 		otherwise known as PO.DAAC.</p>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<p>The software implements a <a href="http://en.wikipedia.org/wiki/Representational_state_transfer">RESTful</a> <a href="http://cxf.apache.org/">Apache CXF</a> web-service and client to obtain data from the <a href="http://podaac.jpl.nasa.gov/ws/index.html">PO.DAAC Web-Services API</a>. It then translates the product metadata into a target language provided along with the intial call to the service.</p><br>
 
 <h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<a name="supported-translations" class="anchor" href="#supported-translations"><span class="octicon octicon-link"></span></a>Supported Product Translations
+</h3>
+We aim to support the following list of language translations:
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<ul class="list">
+	<li>ar: Arabic</li>
+	<li>bg: Bulgarian</li>
+	<li>ca: Catalan</li>
+	<li>zh-CHS: Chinese Simplified</li>
+	<li>zh-CHT: Chinese Traditional</li>
+	<li>cs: Czech</li>
+	<li>da: Danish</li>
+	<li>nl: Dutch</li>
+	<li>en: English</li>
+	<li>et: Estonian</li>
+	<li>fi: Finnish</li>
+	<li>fr: French</li>
+	<li>de: German</li>
+	<li>el: Greek</li>
+	<li>ht: Haitian Creole</li>
+	<li>he: Hebrew</li>
+	<li>hi: Hindi</li>
+	<li>mww: Hmong Daw</li>
+	<li>hu: Hungarian</li>
+	<li>id: Indonesian</li>
+	<li>it: Italian</li>
+	<li>ja: Japanese</li>
+	<li>tlh: Klingon</li>
+	<li>tlh-Qaak: Klingon (pIqaD)</li>
+	<li>ko: Korean</li>
+	<li>lv: Latvian</li>
+	<li>lt: Lithuanian</li>
+	<li>ms: Malay</li>
+	<li>mt: Maltese</li>
+	<li>no: Norwegian</li>
+	<li>fa: Persian</li>
+	<li>pl: Polish</li>
+	<li>pt: Portuguese</li>
+	<li>ro: Romanian</li>
+	<li>ru: Russian</li>
+	<li>sk: Slovak</li>
+	<li>sl: Slovenian</li>
+	<li>es: Spanish</li>
+	<li>sv: Swedish</li>
+	<li>th: Thai</li>
+	<li>tr: Turkish</li>
+	<li>uk: Ukrainian</li>
+	<li>ur: Urdu</li>
+	<li>vi: Vietnamese</li>
+	<li>cy: Welsh</li>
+</ul><br>
+
 
 <h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<a name="members" class="anchor" href="#members"><span class="octicon octicon-link"></span></a>Project Members</h3>
+<ul class="list">
+<li>Client Team</li><br>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
+<li>Kathryn O’Brien</li>
+<li>Chris Mattmann</li>
+<li>Lewis John McGibbney</li>
+
+<li>Engineering Team</li><br>
+
+<li>Phillip Carter</li>
+<li>Bhavik Patel</li>
+<li>Daniel Song</li>
+
+</ul><br>
+
+<h3>
+<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements To Be Finished</h3>
+<h5>( (): Indicates corresponding requirement in the document. )</h5><br>
+<hx>To Be Finished By Midterm (One query) </hx><br><br>
+
+<ol class="requirements">
+	<li>The system shall be able to break down each piece of a request, and understand which portions of PO.DAAC data sets are being requested. (6)</li>
+	<li>The system shall be able to filter and merge PO.DAAC data sets based on request information from Requirement 6. (7)</li>
+	<li>The system shall contain extensive tests to verify Requirement 6. (29)</li>
+	<li>The system shall contain extensive tests to verify Requirement 7. (8)</li>
+	<li>The system shall make use of Apache Tika to translate PO.DAAC data and metadata into a target language. (10)</li>
+	<li>The system shall contain a Distributed Cache on the PO.DAAC-facing layer which caches data and metadata which has already been translated.  This will be based on popularity, if requested data is a subset of other data sets, etc. (14)</li>
+	<li>The system shall recognize which data sets are to be cached, or which information is already cached (this information is still pending due to the need to communicate with the scientific community about their desires). (15)</li>
+	<li>The system shall make use of Ring, a mature HTTP abstraction library for writing web servers. (21)</li>
+	<li>The system shall use Leiningen (preferred) or Maven for build automation. (22)</li>
+</ol><br>
+
+<hx>To Be Finished By End Of Term (Most, if not all queries/langs supported)</hx><br><br>
+<ol class="requirements">
+	<li>The system shall contain extensive Unit tests to verify Requirement 10.(12)</li>
+	<li>The system shall contain extensive Unit Tests for Requirements 14 and 15.(16)</li>
+	<li>The system shall be capable of merging translated data sets from the cache and PO.DAAC/Tika services based on client requests. (17)</li>
+	<li>The system shall contain extensive Unit Tests for Requirement 17. (18)</li>
+	<li>The system shall contain an Integration Test which verifies the pieces of the system specified by Requirements 6, 7, 9, 10, 13, 14, and 15 communicate correctly. (19)</li>
+	<li>The system shall make use of Compojure for handling API routing.(20)</li>
+	<li>The system shall be capable of handling multiple clients.  At the minimum, data requested shall be serviced to the correct client under concurrent request scenarios. (3)</li> 
+	<li>The client-facing layer shall be capable of exposing requested data sets in Scientific Data Formats Oceanographers are used to using (HDF4, HDF5, etc).  The specific data formats will be determined in the future based on the demand for the system. (23)</li>
+<li>The system shall adhere to REST methodology, and aim for being easily-integrated into future mobile applications focused on data analysis. (27)</li>
+</ol><br>
+
+<hx>To Be Finished By Expo(Bugs fixed, tested, scalable, etc)</hx><br><br>
+<ol class="requirements">
+<li>The system shall ideally support all of the languages mentioned in the supported translations list (1)</li>
+<li>The system shall be able to handle at least 25 concurrent requests without experiencing some kind of error. (4)</li>
+<li>The system shall contain extensive tests to verify Requirements 3 and 4. (5)</li>
+<li>The system shall make use of Apache Tika to translate PO.DAAC data and metadata into a target language. (10)</li>
+<li>The system shall aim to tie in with other software tools available within the PO.DAAC development components and sandbox.  The aim is to further increase the usefulness of the iPReS service. (26)</li>
+<li>The system shall contain a System Load Test which attempts to crash the service when all pieces are connected. (28)</li>
+</ol><br>
+
+
+
+
+
+<h3>
+<a name="google-forum" class="anchor" href="#google-forum"><span class="octicon octicon-link"></span></a>Google Forum</h3>
+
+<iframe id="forum_embed"
+  src="javascript:void(0)"
+  scrolling="no"
+  frameborder="0"
+  width="500"
+  height="700"></iframe>
+
+<script type="text/javascript">
+  document.getElementById('forum_embed').src =
+     'https://groups.google.com/forum/embed/?place=forum/ipres-capstone'
+     + '&showsearch=true&showpopout=true&showtabs=false'
+     + '&parenturl=' + encodeURIComponent(window.location.href);
+</script> <br>
+<a href="#top">Back to top</a>
+      
+	</section>
     </div>
 
     
