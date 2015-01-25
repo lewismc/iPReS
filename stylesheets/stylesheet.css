@@ -245,3 +245,13 @@ a {
 .cf {
   zoom:1;
 }
+/*list stuff*/
+.list {  
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+}
+ol li {
+    margin: 20px 0;
+    font-size: 12px;
+}
