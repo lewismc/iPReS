@@ -3,7 +3,7 @@
             [app.core :refer :all]
             [clojurewerkz.spyglass.client :as c]))
 
-(def mem-conn (c/text-connection "localhost:2000"))
+(def mem-conn (c/text-connection "localhost:11211"))
 
 (deftest bananas
   (testing "basic cache"
