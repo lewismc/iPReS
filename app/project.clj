@@ -4,7 +4,8 @@
   :min-lein-version "2.0.0"
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [compojure "1.1.9"]
-                 [ring/ring-json "0.3.1"]]
+                 [ring/ring-json "0.3.1"]
+                 [clojurewerkz/spyglass "1.1.0"]]
   :plugins [[lein-ring "0.8.12"]]
   :ring {:handler app.handler/app}
   :profiles

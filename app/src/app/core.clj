@@ -1,4 +1,5 @@
-(ns app.core)
+(ns app.core
+  (:require [clojurewerkz.spyglass.client :as c]))
 
 ;; A map of the languages iPReS supports.
 (def langs {:en       "english"
@@ -46,3 +47,10 @@
             :ht       "haitian creole"
             :tlh      "klingon"
             :tlh-Qaak "klingon (plqaD)"})
+
+(defn put-stuff-in-cache
+  "Demonstrates putting somethign in the cache and getting it synchronously."
+  [conn stuff]
+  (c/set conn "a-key" 5 stuff)
+  val (c/get conn "a-key")
+  val)

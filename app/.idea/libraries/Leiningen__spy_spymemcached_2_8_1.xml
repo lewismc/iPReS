@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: spy/spymemcached:2.8.1">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/spy/spymemcached/2.8.1/spymemcached-2.8.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
