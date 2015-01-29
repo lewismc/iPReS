@@ -114,9 +114,10 @@
   [lang]
   (routes
     (GET "/metadata/dataset" [& request]
-         (if (metadata-dataset-is-valid? request)
-           (response {:msg (str "a data set for " lang)})
-           (response {:msg "you are a bad man"})))
+         (let [req (dissoc  request :lang)]
+           (if (metadata-dataset-is-valid? req)
+             (response {:msg (str "a data set for " lang)})
+             (response {:msg req}))))
     (GET "/metadata/granule" [& request]
          (if (metadata-granule-is-valid? request)
            (response {:msg (str "a granule for " lang)})
