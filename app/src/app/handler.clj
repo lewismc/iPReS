@@ -114,30 +114,35 @@
   [lang]
   (routes
     (GET "/metadata/dataset" [& request]
-         (let [req (dissoc  request :lang)]
+         (let [req (dissoc request :lang)]
            (if (metadata-dataset-is-valid? req)
              (response {:msg (str "a data set for " lang)})
-             (response {:msg req}))))
+             (response {:msg "you are a bad man"}))))
     (GET "/metadata/granule" [& request]
-         (if (metadata-granule-is-valid? request)
-           (response {:msg (str "a granule for " lang)})
-           (response {:msg "no kitty that's a bad kitty"})))
+         (let [req (dissoc request :lang)]
+           (if (metadata-granule-is-valid? req)
+             (response {:msg (str "a granule for " lang)})
+             (response {:msg "no kitty that's a bad kitty"}))))
     (GET "/search/dataset" [& request]
-         (if (search-dataset-is-valid? request)
-           (response {:msg (str "a search for " lang)})
-           (response {:msg "hello"})))
+         (let [req (dissoc request :lang)]
+           (if (search-dataset-is-valid? req)
+             (response {:msg (str "a search for " lang)})
+             (response {:msg "hello"}))))
     (GET "/search/granule" [& request]
-         (if (search-granule-is-valid? request)
-           (response {:msg (str "a search granule for " lang)})
-           (response {:msg "hello"})))
+         (let [req (dissoc request :lang)]
+           (if (search-granule-is-valid? req)
+             (response {:msg (str "a search granule for " lang)})
+             (response {:msg "hello"}))))
     (GET "/image/granule" [& request]
-         (if (image-granule-is-valid? request)
-           (response {:msg (str "an image granule for " lang)})
-           (response {:msg "hello"})))
+         (let [req (dissoc request :lang)]
+           (if (image-granule-is-valid? req)
+             (response {:msg (str "an image granule for " lang)})
+             (response {:msg "hello"}))))
     (GET "/extract/granule" [& request]
-         (if (extract-granule-is-valid? request)
-           (response {:msg (str "an extract granule for " lang)}))
-         (response {:msg "hello"}))
+         (let [req (dissoc request :lang)]
+           (if (extract-granule-is-valid? req)
+             (response {:msg (str "an extract granule for " lang)})
+             (response {:msg "hello"}))))
     (route/not-found
       (response {:msg "Page not found"}))))
 
