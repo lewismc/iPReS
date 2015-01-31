@@ -26,7 +26,7 @@ To start a web server for the application, run:
 
     lein ring server
     
-To play with it:
+There is one supported route, which takes only one parameter.  Example usage:
 
     localhost:3000/translator?message=phillip carter
     ;; -> {"message":"hillippayartercay"}
