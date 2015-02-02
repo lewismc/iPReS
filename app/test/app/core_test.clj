@@ -1,10 +1,11 @@
 (ns app.core-test
   (:require [clojure.test :refer :all]
-            [app.core :refer :all]
-            [clojurewerkz.spyglass.client :as c]))
+            [app.core :refer :all]))
 
-(def mem-conn (c/text-connection "localhost:11211"))
-
-(deftest bananas
-  (testing "basic cache"
-    (is (= "bananas" (put-stuff-in-cache mem-conn "bananas")))))
+(deftest fail
+  (testing "failing test so that data set prints to screen"
+    (is (= nil (hit-podaac "metadata/granule/"
+                           {:datasetId   "PODAAC-GHMG2-2PO01"
+                            :shortName   "OSDPD-L2P-MSG02"
+                            :granuleName "20120912-MSG02-OSDPD-L2P-MSG02_0200Z-v01.nc"
+                            :format      "iso"})))))

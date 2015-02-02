@@ -1,5 +1,5 @@
 (ns app.core
-  (:require [clojurewerkz.spyglass.client :as c]))
+  (:require [clj-http.client :as client]))
 
 ;; A map of the languages iPReS supports.
 (def langs {:en       "english"
@@ -48,9 +48,12 @@
             :tlh      "klingon"
             :tlh-Qaak "klingon (plqaD)"})
 
-(defn put-stuff-in-cache
-  "Demonstrates putting somethign in the cache and getting it synchronously."
-  [conn stuff]
-  (c/set conn "a-key" 5 stuff)
-  val (c/get conn "a-key")
-  val)
+(def podaac-base-url "http://podaac.jpl.nasa.gov/ws/")
+
+(defn hit-podaac
+  "Hits the PO.DAAC web service specified by the given route,
+  with the parameters specified by the given params."
+  [route params]
+  (->
+    (str podaac-base-url route)
+    (client/get {:query-params params})))
