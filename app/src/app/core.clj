@@ -57,3 +57,23 @@
   (->
     (str podaac-base-url route)
     (client/get {:query-params params})))
+
+(defn translate-to-lang
+  "Returns PO.DAAC dataset specified by the given language."
+  [dataset lang]
+  (dataset))
+
+(defn convert-to-format
+  "Return dataset in specified format"
+  [dataset format]
+  (dataset))
+
+(defn translate-request
+  "Handles a given iPres request and returns the translate data in the specified format."
+  [route params lang format]
+  (if (cache/has? C :c)
+    (cache/hit C :c)
+    (->
+      (hit-podaac route params)
+      (translate-to-lang lang)
+      (convert-to-format format))))

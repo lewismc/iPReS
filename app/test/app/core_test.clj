@@ -9,3 +9,10 @@
                             :shortName   "OSDPD-L2P-MSG02"
                             :granuleName "20120912-MSG02-OSDPD-L2P-MSG02_0200Z-v01.nc"
                             :format      "iso"})))))
+
+;(deftest example
+;  (testing "example"
+;    (is (= nil (translate-request "metadata/dataset/"
+;                                 {:a 1 :b 2}
+;                                  "kr"
+;                                  "json")))))
