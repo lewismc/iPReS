@@ -11,7 +11,7 @@
 ;; Initialize the cache here to make it easier to work with.
 (clear)
 
-(defn add
+(defn cache-add
   "Adds a given key and value to the cache.
 
   Internally, this returns a new instance of the cache
@@ -25,12 +25,12 @@
   [key]
   (cache/has? @data-cache key))
 
-(defn lookup
+(defn cache-lookup
   "Returns the item coresponding to the given key; otherwise, nil."
   [key]
   (cache/lookup @data-cache key))
 
-(defn drop-key
+(defn cache-drop-key
   "Drops the given key and its associated value from the cache.
 
   Internally, this returns a new instance of the cache

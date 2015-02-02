@@ -1,5 +1,7 @@
 (ns app.core
-  (:require [clj-http.client :as client]))
+  (:require [clj-http.client :as client]
+            [app.cache :refer :all]
+            [clojure.string :as str]))
 
 ;; A map of the languages iPReS supports.
 (def langs {:en       "english"
@@ -59,21 +61,35 @@
     (client/get {:query-params params})))
 
 (defn translate-to-lang
-  "Returns PO.DAAC dataset specified by the given language."
-  [dataset lang]
-  (dataset))
+  "Returns PO.DAAC dataset specified by the given language.
+
+  TODO: Add Tika translation"
+  [dataset key lang]
+  (cache-add key dataset)
+  (cache-lookup key))
 
 (defn convert-to-format
-  "Return dataset in specified format"
+  "Return dataset in specified format
+
+  TODO: Add file conversion"
   [dataset format]
-  (dataset))
+
+  ;; temporary return statement
+  (str dataset))
+
+(defn ^:private route-to-key
+  "Returns the concatenation of the given route, split by slashes,
+  with the suppled language code."
+  [route lang-code]
+  (keyword (str (apply str (str/split route #"/")) lang-code)))
 
 (defn translate-request
-  "Handles a given iPres request and returns the translate data in the specified format."
-  [route params lang format]
-  (if (cache/has? C :c)
-    (cache/hit C :c)
-    (->
-      (hit-podaac route params)
-      (translate-to-lang lang)
-      (convert-to-format format))))
+  "Handles a given iPres request and returns the translated data in the specified format."
+  [route params lang-code format]
+  (let [cache-key (route-to-key route lang-code)]
+    (if (cache-has? cache-key)
+      (cache-lookup cache-key)
+      (->
+        (hit-podaac route params)
+        (translate-to-lang cache-key lang-code)
+        (convert-to-format format)))))
