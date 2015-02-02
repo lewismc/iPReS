@@ -28,6 +28,20 @@ You will need [Leiningen][1] 1.7.0 or above installed.
 Alternatively, to just get all dependencies:
 
     lein deps
+    
+## How to run tests
+
+To run the whole suite:
+
+    lein test
+    
+To run a specific namespace test (in this case, the cache test file):
+
+    lein test app.cache-test
+    
+To run a specific test function (in this case, the basic cache test function):
+
+    lein test :only app.cache-test/basic-cache-test
 
 ## Libraries Used
 
