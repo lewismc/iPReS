@@ -7,9 +7,17 @@ All routes for the service follow this pattern:
     
 Where `<lang_code>` is a supported language code specified [here](https://github.com/lewismc/iPReS#supported-product-translations), `<route>` is a route which mirrors one of [PO.DAAC's Web Service](http://podaac.jpl.nasa.gov/ws/index.html) routes, and `<params>` follow the same rules as PO.DAAC Web Service route parameters.
     
-Example Usage:
+## Example Usage
+
+/metadata/dataset:
 
     localhost:3000/ko/metadata/dataset?datasetId=PODAAC-GHMG2-2PO01&shortName=OSDPD-L2P-MSG02 
+    
+/metadata/granule:
+
+    http://localhost:3000/ko/metadata/granule?datasetId=PODAAC-GHMG2-2PO01&shortName=OSDPD-L2P-MSG02&granuleName=20120912-MSG02-OSDPD-L2P-MSG02_0200Z-v01.nc&format=iso
+    
+...rest are TBD until they appear to work correctly.
 
 ## Deploy Location
 
