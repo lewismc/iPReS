@@ -9,7 +9,7 @@ Where `<lang_code>` is a supported language code specified [here](https://github
     
 Example Usage:
 
-    localhost:3000/kr/metadata/dataset?datasetId=PODAAC-GHMG2-2PO01&shortName=OSDPD-L2P-MSG02 
+    localhost:3000/ko/metadata/dataset?datasetId=PODAAC-GHMG2-2PO01&shortName=OSDPD-L2P-MSG02 
 
 ## Deploy Location
 
