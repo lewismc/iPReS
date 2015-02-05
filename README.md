@@ -1,7 +1,7 @@
 iPReS
 =====
 
-<img src="http://podaac.jpl.nasa.gov/sites/default/files/image/custom_thumbs/podaac_logo.png" align="centre" width="300" />
+<img src="./logo/iPReS_logo.png" />
 
 #Introduction
 The Internationalization (i18n) Product Retrieval Service is a web service and client providing 
