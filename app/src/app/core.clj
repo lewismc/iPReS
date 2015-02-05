@@ -1,9 +1,9 @@
 (ns app.core
   (:require [clj-http.client :as client]
             [app.cache :refer :all]
-            [clojure.string :as str]))
+            [clojure.string :as str])
+  (:import (org.apache.tika.language.translate MosesTranslator)))
 
-;; A map of the languages iPReS supports.
 (def langs {:en       "english"
             :ar       "arabic"
             :bg       "bulgarian"
@@ -52,6 +52,8 @@
 
 (def podaac-base-url "http://podaac.jpl.nasa.gov/ws/")
 
+(def translator (MosesTranslator.))
+
 (defn hit-podaac
   "Hits the PO.DAAC web service specified by the given route,
   with the parameters specified by the given params."
@@ -60,12 +62,18 @@
     (str podaac-base-url route)
     (client/get {:query-params params})))
 
-(defn translate-to-lang
-  "Returns PO.DAAC dataset specified by the given language.
+(defn translate-with-tika
+  "Returns the translated dataset into the specified language
+  using Apache Tika.
 
-  TODO: Add Tika translation"
+  TODO: Translate"
+  [dataset lang]
+  (str dataset))
+
+(defn translate-to-lang
+  "Returns PO.DAAC dataset specified by the given language."
   [dataset key lang]
-  (cache-add key dataset)
+  (cache-add key (translate-with-tika dataset key))
   (cache-lookup key))
 
 (defn convert-to-format

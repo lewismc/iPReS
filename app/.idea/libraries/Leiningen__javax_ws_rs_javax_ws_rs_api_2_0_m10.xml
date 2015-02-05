@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Leiningen: javax.ws.rs/javax.ws.rs-api:2.0-m10">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/javax/ws/rs/javax.ws.rs-api/2.0-m10/javax.ws.rs-api-2.0-m10.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

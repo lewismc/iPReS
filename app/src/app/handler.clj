@@ -1,6 +1,5 @@
 (ns app.handler
   (:use compojure.core)
-  (:use [ring.middleware.json])
   (:use [ring.util.response :only [response]])
 
   (:require [compojure.handler :as handler]
@@ -107,6 +106,7 @@
   (let [required-params [:datasetId :shortName :granuleName :bbox :format]]
     (every? (set (keys request)) required-params)))
 
+;;
 
 (defn api-routes
   "The API routes for the iPReS service.
@@ -116,35 +116,29 @@
     (GET "/metadata/dataset" [& request]
          (let [req (dissoc request :lang)]
            (if (metadata-dataset-is-valid? req)
-             (response {:msg (str "a data set for " lang)})
-             (response {:msg "you are a bad man"}))))
+             (response (core/translate-request "metadata/dataset" req lang "")))))
     (GET "/metadata/granule" [& request]
          (let [req (dissoc request :lang)]
            (if (metadata-granule-is-valid? req)
-             (response {:msg (str "a granule for " lang)})
-             (response {:msg "no kitty that's a bad kitty"}))))
+             (response (core/translate-request "metadata/granule" req lang "")))))
     (GET "/search/dataset" [& request]
          (let [req (dissoc request :lang)]
            (if (search-dataset-is-valid? req)
-             (response {:msg (str "a search for " lang)})
-             (response {:msg "hello"}))))
+             (response (core/translate-request "search/dataset" req lang "")))))
     (GET "/search/granule" [& request]
          (let [req (dissoc request :lang)]
            (if (search-granule-is-valid? req)
-             (response {:msg (str "a search granule for " lang)})
-             (response {:msg "hello"}))))
+             (response (core/translate-request "search/granule" req lang "")))))
     (GET "/image/granule" [& request]
          (let [req (dissoc request :lang)]
            (if (image-granule-is-valid? req)
-             (response {:msg (str "an image granule for " lang)})
-             (response {:msg "hello"}))))
+             (response (core/translate-request "image/granule" req lang "")))))
     (GET "/extract/granule" [& request]
          (let [req (dissoc request :lang)]
            (if (extract-granule-is-valid? req)
-             (response {:msg (str "an extract granule for " lang)})
-             (response {:msg "hello"}))))
+             (response (core/translate-request "extract/granule" req lang "")))))
     (route/not-found
-      (response {:msg "Page not found"}))))
+      (response "Not found."))))
 
 ;; iPReS routes - 404's if language unsupported
 (defroutes ipres
@@ -154,10 +148,4 @@
 
 (def app
   (->
-    (handler/api ipres)
-
-    ;; This will need replacement...
-    (wrap-json-response)
-
-    ;; As will this
-    (wrap-json-body)))
+    (handler/api ipres)))
