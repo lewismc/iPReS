@@ -1,7 +1,8 @@
 (ns app.core
   (:require [clj-http.client :as client]
             [app.cache :refer :all]
-            [clojure.string :as str])
+            [clojure.string :as str]
+            [clojure.data.xml :as xml])
   (:import (org.apache.tika.language.translate MosesTranslator)))
 
 (def langs {:en       "english"
@@ -83,7 +84,8 @@
   [dataset format]
 
   ;; temporary return statement
-  (str dataset))
+  (let [input-xml (java.io.StringReader. dataset)]
+    (xml/emit-str (xml/parse input-xml))))
 
 (defn ^:private route-to-key
   "Returns the concatenation of the given route, split by slashes,
@@ -98,6 +100,6 @@
     (if (cache-has? cache-key)
       (cache-lookup cache-key)
       (->
-        (hit-podaac route params)
+        (get (hit-podaac route params) :body)
         (translate-to-lang cache-key lang-code)
         (convert-to-format format)))))
