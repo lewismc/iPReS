@@ -2,8 +2,7 @@
   (:require [clj-http.client :as client]
             [app.cache :refer :all]
             [clojure.string :as str]
-            [clojure.data.xml :as xml])
-  (:import (org.apache.tika.language.translate MosesTranslator)))
+            [clojure.xml :as xml]))
 
 (def langs {:en       "english"
             :ar       "arabic"
@@ -53,15 +52,11 @@
 
 (def podaac-base-url "http://podaac.jpl.nasa.gov/ws/")
 
-(def translator (MosesTranslator.))
-
 (defn hit-podaac
   "Hits the PO.DAAC web service specified by the given route,
   with the parameters specified by the given params."
   [route params]
-  (->
-    (str podaac-base-url route)
-    (client/get {:query-params params})))
+  (xml/parse (str podaac-base-url route params)))
 
 (defn translate-with-tika
   "Returns the translated dataset into the specified language
@@ -74,7 +69,7 @@
 (defn translate-to-lang
   "Returns PO.DAAC dataset specified by the given language."
   [dataset key lang]
-  (cache-add key (translate-with-tika dataset key))
+  (cache-add key dataset)
   (cache-lookup key))
 
 (defn convert-to-format
@@ -84,8 +79,7 @@
   [dataset format]
 
   ;; temporary return statement
-  (let [input-xml (java.io.StringReader. dataset)]
-    (xml/emit-str (xml/parse input-xml))))
+  (xml/emit dataset))
 
 (defn ^:private route-to-key
   "Returns the concatenation of the given route, split by slashes,
@@ -100,6 +94,7 @@
     (if (cache-has? cache-key)
       (cache-lookup cache-key)
       (->
-        (get (hit-podaac route params) :body)
+        (hit-podaac route params)
         (translate-to-lang cache-key lang-code)
-        (convert-to-format format)))))
+        (convert-to-format format)
+        (with-out-str)))))

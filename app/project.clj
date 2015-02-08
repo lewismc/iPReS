@@ -9,7 +9,8 @@
                  [clj-http "1.0.1"]
                  [org.clojure/core.cache "0.6.4"]
                  [org.apache.tika/tika-translate "1.7"]
-                 [org.clojure/data.xml "0.0.8"]]
+                 [org.clojure/data.zip "0.1.1"]
+                 [com.github.kyleburton/clj-xpath "1.4.4"]]
   :plugins [[lein-ring "0.8.12"]]
   :ring {:handler app.handler/app}
   :profiles
