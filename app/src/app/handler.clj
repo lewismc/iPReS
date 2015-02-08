@@ -43,10 +43,24 @@
 
   http://podaac.jpl.nasa.gov/ws/metadata/granule/index.html"
   [request]
-  (let [supported-params [:datasetId :shortName :granuleName :format]]
+  (let [supported-params [:datasetId :shortName :granuleName :format
+                          :startTime :endTime :itemsPerPage]]
     (and (contains? request :datasetId)
          (contains? request :shortName)
-         (contains? request :granuleName)
+         (or
+           ;; Request is for a metadata for a single, specified granule
+           (and (contains? request :granuleName)
+                (complement (contains? request :format)))
+
+           ;; Request is for metadata for a list of granules archived
+           ;; within the last 24 hours in Datacasting format
+           (and (contains? request :format)
+                (complement (contains? request :granuleName)))
+
+           ;;Request is for metadata for a list of granules
+           (and (contains? request :startTime)
+                (contains? request :endTime)
+                (contains? request :format)))
          (no-bogus-params? supported-params (keys request)))))
 
 
