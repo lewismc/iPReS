@@ -3,7 +3,8 @@
             [app.core :refer :all]
             [app.cache :as cache]
             [clj-xpath.core :as xpath]
-            [clojure.string :as str]))
+            [clojure.string :as str]
+            [ring.util.codec :as codec]))
 
 (cache/clear)
 
@@ -64,4 +65,11 @@
         (extract-root test-doc)
         (report-text)
         (gen-stuff-for-translate)))
+    (is (= 1 1))))
+
+(deftest hit-podaac-works
+  (testing "that basic XPATH code in hit-podaac is successful."
+    (println (mapv (fn [x] (str x "\n")) (hit-podaac "metadata/dataset"
+                                                     {:datasetId "PODAAC-GHMG2-2PO01"
+                                                      :shortName "OSDPD-L2P-MSG02"})))
     (is (= 1 1))))

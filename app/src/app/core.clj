@@ -1,8 +1,10 @@
 (ns app.core
-  (:require [clj-http.client :as client]
-            [app.cache :refer :all]
-            [clojure.string :as str]
-            [clojure.xml :as xml]))
+  (:require
+    [app.cache :refer :all]
+    [clojure.string :as str]
+    [clojure.xml :as xml]
+    [clj-xpath.core :as xpath]
+    [ring.util.codec :as codec]))
 
 (def langs {:en       "english"
             :ar       "arabic"
@@ -50,21 +52,69 @@
             :tlh      "klingon"
             :tlh-Qaak "klingon (plqaD)"})
 
+;;;;;;;;;;
+;;
+;; Dealing with PO.DAAC region
+;;
+;;;;;;;;;;
+
 (def podaac-base-url "http://podaac.jpl.nasa.gov/ws/")
+
+(defn- build-url
+  "Returns a fully-qualifies PO.DAAC route based on
+  the given route and parameters."
+  [route params]
+  (str podaac-base-url route "?" (codec/form-encode params)))
+
+(defn- fetch-xml
+  "Fetches and caches XML from a PO.DAAC route."
+  [url]
+  (slurp url))
+
+(defn- build-xdoc
+  "Builds an XPATH-accessible XML document from
+  a given, formatted XML document."
+  [xml]
+  (xpath/xml->doc xml))
+
+(defn- extract-root
+  "Extracts the root of the XML document using an XPATH query."
+  [xpath-doc]
+  (first (xpath/$x "/*" xpath-doc)))
+
+(defn- extract-relevant-text
+  "Returns a equences of relevant phrases from the XPATH root,
+  split by the tab and newline delimiters."
+  [root]
+  (->
+    (get root :text)
+    (str/split #"\t+\n+")))
+
+(defn- format-relevant-text
+  "Returns a sequence of chunks of relevant text,
+  stripped of all leading and trailing whitespace."
+  [text]
+  (->>
+    (map (fn [x] (str/trim x)) text)
+    (filter (complement str/blank?))))
 
 (defn hit-podaac
   "Hits the PO.DAAC web service specified by the given route,
   with the parameters specified by the given params."
   [route params]
-  (xml/parse (str podaac-base-url route params)))
+  (->
+    (build-url route params)
+    (fetch-xml)
+    (build-xdoc)
+    (extract-root)
+    (extract-relevant-text)
+    (format-relevant-text)))
 
-(defn translate-with-tika
-  "Returns the translated dataset into the specified language
-  using Apache Tika.
-
-  TODO: Translate"
-  [dataset lang]
-  (str dataset))
+;;;;;;;;;;
+;;
+;; Translation region
+;;
+;;;;;;;;;;
 
 (defn translate-to-lang
   "Returns PO.DAAC dataset specified by the given language."
@@ -81,7 +131,13 @@
   ;; temporary return statement
   (xml/emit dataset))
 
-(defn ^:private route-to-key
+;;;;;;;;;;
+;;
+;; Top-level region
+;;
+;;;;;;;;;;
+
+(defn- route-to-key
   "Returns the concatenation of the given route, split by slashes,
   with the suppled language code."
   [route lang-code]

@@ -154,7 +154,7 @@
 (deftest extract-granule-is-valid?-happy
   (testing "happy case"
     (is (= true (extract-granule-is-valid? {:datasetId 12 :shortName "yes" :granuleName "no"
-                                            :bbox "what is this" :format "one which is pleasing to the eyes"})))))
+                                            :bbox      "what is this" :format "one which is pleasing to the eyes"})))))
 
 (deftest extract-granule-is-valid?-sad
   (testing "sad case"
