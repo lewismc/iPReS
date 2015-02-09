@@ -77,4 +77,6 @@ More examples can be found in any of the test files.
 * [Leiningen](http://leiningen.org/)
 * [Ring](https://github.com/ring-clojure/ring)
 * [Compojure](https://github.com/weavejester/compojure)
-* [Ring-Json](https://github.com/ring-clojure/ring-json)
+* [Core.cache](https://github.com/clojure/core.cache)
+* [Apache Tika Translate](https://github.com/apache/tika)
+* [Clj-xpath](https://github.com/kyleburton/clj-xpath)
