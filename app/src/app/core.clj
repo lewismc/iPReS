@@ -151,6 +151,6 @@
       (cache-lookup cache-key)
       (->
         (hit-podaac route params)
-        (translate-to-lang cache-key lang-code)
-        (convert-to-format format)
-        (with-out-str)))))
+        ;(translate-to-lang cache-key lang-code)
+        ;(convert-to-format format)
+        ))))

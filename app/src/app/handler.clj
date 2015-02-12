@@ -1,6 +1,7 @@
 (ns app.handler
   (:use compojure.core)
-  (:use [ring.util.response :only [response]])
+  (:use [ring.util.response :only [response]]
+        [ring.middleware.json :only [wrap-json-response]])
 
   (:require [compojure.handler :as handler]
             [compojure.route :as route]
@@ -120,8 +121,6 @@
   (let [required-params [:datasetId :shortName :granuleName :bbox :format]]
     (every? (set (keys request)) required-params)))
 
-;;
-
 (defn api-routes
   "The API routes for the iPReS service.
   Nested route structure under supported languages."
@@ -130,7 +129,7 @@
     (GET "/metadata/dataset" [& request]
          (let [req (dissoc request :lang)]
            (if (metadata-dataset-is-valid? req)
-             (response (core/translate-request "metadata/dataset" req lang "")))))
+             (response {:extracted-text (core/translate-request "metadata/dataset" req lang "")}))))
     (GET "/metadata/granule" [& request]
          (let [req (dissoc request :lang)]
            (if (metadata-granule-is-valid? req)
@@ -162,4 +161,7 @@
 
 (def app
   (->
-    (handler/api ipres)))
+    (handler/api ipres)
+
+    ;; this code will go away eventually
+    (wrap-json-response)))
