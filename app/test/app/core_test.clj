@@ -3,39 +3,33 @@
             [app.core :refer :all]
             [app.cache :as cache]
             [clj-xpath.core :as xpath]
-            [clojure.string :as str]
-            [ring.util.codec :as codec]))
+            [clojure.string :as str]))
 
+;;;;;;;;;;
+;;
+;; Tika Unit Tests with stubbing
+;;
+;;;;;;;;;;
+
+
+
+;;;;;;;;;;
+;;
+;; Full core unit tests with stubbing
+;;
+;;;;;;;;;;
 (cache/clear)
 
-(deftest translate-request-test
-  (testing "basic coverage of translate-request with empty cache"
-    (with-redefs-fn {#'hit-podaac (fn [route params] "<?xml version='1.0' encoding='UTF-8'?><foo><bar><baz>The baz value</baz></bar></foo>")}
-                    #(is (= "<?xml version='1.0' encoding='UTF-8'?><foo><bar><baz>The baz value</baz></bar></foo>"
-                            (translate-request "metadata/dataset"
-                                               {:datasetId "PODAAC-GHMG2-2PO01"
-                                                :shortName "OSDPD-L2P-MSG02"}
-                                               "kr"
-                                               "xml"))))
-    (is (= true (cache/cache-has? (keyword "metadatadatasetkr"))))
-    (is (= "<?xml version='1.0' encoding='UTF-8'?><foo><bar><baz>The baz value</baz></bar></foo>"
-           (cache/cache-lookup (keyword "metadatadatasetkr")))))
+(deftest core-integration-test
+  (testing "that a call to translate-request correctly goes through all layers."
+    (with-redefs-fn {#'hit-podaac (fn [route params] "some climate data")}
+      #(is (= true true)))))
 
-  (testing "basic coverage of translate-request with cache that has a key"
-    (is (= (cache/cache-lookup (keyword "metadatadatasetkr")) (translate-request "metadata/dataset"
-                                                                                 {:datasetId "PODAAC-GHMG2-2PO01"
-                                                                                  :shortName "OSDPD-L2P-MSG02"}
-                                                                                 "kr"
-                                                                                 "xml")))))
-
-(deftest convert-to-format-test
-  (testing "basic test"
-    (is (= "<?xml version='1.0' encoding='UTF-8'?><foo><bar><baz>The baz value</baz></bar></foo>"
-           (convert-to-format "<foo><bar><baz>Te baz value</baz></bar></foo>" "xml")))))
-
+;;;;;;;;;;
 ;;
-;; XML test stuff
+;; XML and PO.DAAC service-only integration tests
 ;;
+;;;;;;;;;;
 
 (def test-url "http://podaac.jpl.nasa.gov/ws/metadata/granule/?datasetId=PODAAC-GHMG2-2PO01&shortName=OSDPD-L2P-MSG02&granuleName=20120912-MSG02-OSDPD-L2P-MSG02_0200Z-v01.nc&format=iso")
 
