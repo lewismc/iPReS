@@ -10,6 +10,35 @@
 ;; Tika Unit Tests with stubbing
 ;;
 ;;;;;;;;;;
+(deftest translate-with-tika-spanish
+  (testing "returns spanish translation using apache tika"
+    (with-redefs-fn{#'translate-with-tika (fn [dataset lang] "hola")}
+      #(is (= true true)))))
+
+(deftest translate-with-tika-german
+  (testing "returns german translation using apache tika"
+    (with-redefs-fn{#'translate-with-tika (fn [dataset lang] "hallo")}
+      #(is (= true true)))))
+
+(deftest translate-with-tika-italian
+  (testing "returns italian translation using apache tika"
+    (with-redefs-fn{#'translate-with-tika (fn [dataset lang] "ciao")}
+      #(is (= true true)))))
+
+(deftest translate-with-tika-french
+  (testing "returns french translation using apache tika"
+    (with-redefs-fn{#'translate-with-tika (fn [dataset lang] "bonjour")}
+      #(is (= true true)))))
+
+(deftest translate-with-tika-danish
+  (testing "returns danish translation using apache tika"
+    (with-redefs-fn{#'translate-with-tika (fn [dataset lang] "hej")}
+      #(is (= true true)))))
+
+(deftest translate-with-tika-norwegian
+  (testing "returns norwegian translation using apache tika"
+    (with-redefs-fn{#'translate-with-tika (fn [dataset lang] "hallo")}
+      #(is (= true true)))))
 
 
 

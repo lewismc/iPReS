@@ -4,7 +4,8 @@
     [clojure.string :as str]
     [clojure.xml :as xml]
     [clj-xpath.core :as xpath]
-    [ring.util.codec :as codec]))
+    [ring.util.codec :as codec])
+  (:import (org.apache.tika.language.translate MosesTranslator)))
 
 (def langs {:en       "english"
             :ar       "arabic"
@@ -59,6 +60,7 @@
 ;;;;;;;;;;
 
 (def podaac-base-url "http://podaac.jpl.nasa.gov/ws/")
+(def source-language "en")
 
 (defn- build-url
   "Returns a fully-qualifies PO.DAAC route based on
@@ -115,11 +117,21 @@
 ;; Translation region
 ;;
 ;;;;;;;;;;
+(def translator (MosesTranslator.))
+
+(defn translate-with-tika
+    "Returns the translated dataset into the specified language
+  using Apache Tika.
+
+  TODO: Translate"
+  [dataset lang]
+  (.translate (translator dataset "en" lang)))
+
 
 (defn translate-to-lang
   "Returns PO.DAAC dataset specified by the given language."
   [dataset key lang]
-  (cache-add key dataset)
+  (cache-add key (translate-with-tika dataset lang))
   (cache-lookup key))
 
 (defn convert-to-format
