@@ -73,7 +73,9 @@ header h2 {
   text-align: center;
   margin: 0;
 }
-
+#downloads {
+ text-align: center;
+}
 /* Main Content
 */
 
@@ -244,4 +246,14 @@ a {
 
 .cf {
   zoom:1;
+}
+/*list stuff*/
+.list {  
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+}
+ol li {
+    margin: 20px 0;
+    font-size: 12px;
 }
