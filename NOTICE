@@ -9,11 +9,14 @@ This product includes software developed by the following copyright owners:
 iPReS includes Leiningen:
 Copyright (c) 2012-2014, Phil Hagelberg and contributors, All rights reserved.
 
-iPReS includes Leiningen:
-Copyright (c) 2012-2014, Phil Hagelberg and contributors, All rights reserved.
-iPReS includes Leiningen:
-Copyright (c) 2012-2014, Phil Hagelberg and contributors, All rights reserved.
-iPReS includes Leiningen:
-Copyright (c) 2012-2014, Phil Hagelberg and contributors, All rights reserved.
-iPReS includes Leiningen:
-Copyright (c) 2012-2014, Phil Hagelberg and contributors, All rights reserved.
+iPReS includes Ring:
+Copyright (c) 2009-2014 Mark McGranaghan, James Reeves & contributors, All rights reserved.
+
+iPReS includes Compojure:
+Copyright (c) 2015 James Reeves, All rights reserved.
+
+iPReS includes core.cache:
+Copyright (c) 2012, Rich Hickey, Michael Fogus and contributors, All rights reserved.
+
+iPReS includes clj-xpath:
+Copyright (c) 2009-2015, Kyle Burton, All rights reserved.
