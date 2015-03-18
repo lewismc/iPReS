@@ -131,7 +131,7 @@
 (defn translate-to-lang
   "Returns PO.DAAC dataset specified by the given language."
   [dataset key lang]
-  (cache-add key (translate-with-tika dataset lang))
+  (cache-add key dataset) ;; Temporarily removing for TA demo... (translate-with-tika dataset lang))
   (cache-lookup key))
 
 (defn convert-to-format
@@ -163,6 +163,6 @@
       (cache-lookup cache-key)
       (->
         (hit-podaac route params)
-        ;(translate-to-lang cache-key lang-code)
+        (translate-to-lang cache-key lang-code)
         ;(convert-to-format format)
         ))))
