@@ -5,7 +5,7 @@
     [clojure.xml :as xml]
     [clj-xpath.core :as xpath]
     [ring.util.codec :as codec])
-  (:import (org.apache.tika.language.translate MosesTranslator)))
+    (:import (org.apache.tika.language.translate GoogleTranslator)))
 
 (def langs {:en       "english"
             :ar       "arabic"
@@ -117,7 +117,7 @@
 ;; Translation region
 ;;
 ;;;;;;;;;;
-(def translator (MosesTranslator.))
+(def translator (GoogleTranslator.))
 
 (defn translate-with-tika
     "Returns the translated dataset into the specified language
@@ -125,13 +125,12 @@
 
   TODO: Translate"
   [dataset lang]
-  (.translate (translator dataset "en" lang)))
-
+  (map (fn [x] (.translate translator x "en" lang)) dataset))
 
 (defn translate-to-lang
   "Returns PO.DAAC dataset specified by the given language."
   [dataset key lang]
-  (cache-add key dataset) ;; Temporarily removing for TA demo... (translate-with-tika dataset lang))
+  (cache-add key (translate-with-tika dataset lang))
   (cache-lookup key))
 
 (defn convert-to-format
@@ -164,5 +163,5 @@
       (->
         (hit-podaac route params)
         (translate-to-lang cache-key lang-code)
-        ;(convert-to-format format)
+        ;;(convert-to-format format)
         ))))
