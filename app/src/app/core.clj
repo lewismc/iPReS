@@ -5,7 +5,7 @@
     [clojure.xml :as xml]
     [clj-xpath.core :as xpath]
     [ring.util.codec :as codec])
-    (:import (org.apache.tika.language.translate GoogleTranslator)))
+    (:import (org.apache.tika.language.translate MicrosoftTranslator)))
 
 (def langs {:en       "english"
             :ar       "arabic"
@@ -117,15 +117,13 @@
 ;; Translation region
 ;;
 ;;;;;;;;;;
-(def translator (GoogleTranslator.))
+(def translator (MicrosoftTranslator.))
 
 (defn translate-with-tika
     "Returns the translated dataset into the specified language
-  using Apache Tika.
-
-  TODO: Translate"
+  using Apache Tika."
   [dataset lang]
-  (map (fn [x] (.translate translator x "en" lang)) dataset))
+  (pmap (fn [x] (.translate translator x "en" lang)) dataset))
 
 (defn translate-to-lang
   "Returns PO.DAAC dataset specified by the given language."

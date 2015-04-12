@@ -129,27 +129,33 @@
     (GET "/metadata/dataset" [& request]
          (let [req (dissoc request :lang)]
            (if (metadata-dataset-is-valid? req)
-             (response {:extracted-text (core/translate-request "metadata/dataset" req lang "")}))))
+             (response {:extracted-text (core/translate-request
+                                         "metadata/dataset" req lang "")}))))
     (GET "/metadata/granule" [& request]
          (let [req (dissoc request :lang)]
            (if (metadata-granule-is-valid? req)
-             (response (core/translate-request "metadata/granule" req lang "")))))
+             (response (core/translate-request
+                        "metadata/granule" req lang "")))))
     (GET "/search/dataset" [& request]
          (let [req (dissoc request :lang)]
            (if (search-dataset-is-valid? req)
-             (response (core/translate-request "search/dataset" req lang "")))))
+             (response (core/translate-request
+                        "search/dataset" req lang "")))))
     (GET "/search/granule" [& request]
          (let [req (dissoc request :lang)]
            (if (search-granule-is-valid? req)
-             (response (core/translate-request "search/granule" req lang "")))))
+             (response (core/translate-request
+                        "search/granule" req lang "")))))
     (GET "/image/granule" [& request]
          (let [req (dissoc request :lang)]
            (if (image-granule-is-valid? req)
-             (response (core/translate-request "image/granule" req lang "")))))
+             (response (core/translate-request
+                        "image/granule" req lang "")))))
     (GET "/extract/granule" [& request]
          (let [req (dissoc request :lang)]
            (if (extract-granule-is-valid? req)
-             (response (core/translate-request "extract/granule" req lang "")))))
+             (response (core/translate-request
+                        "extract/granule" req lang "")))))
     (route/not-found
       (response "Not found."))))
 
