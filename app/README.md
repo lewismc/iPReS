@@ -31,6 +31,8 @@ You will need [Leiningen][1] 1.7.0 or above installed.
 
 ## How to run (locally)
 
+    # make sure you are in the $IPRES_HOME/app directory
+    cd app
     lein ring server
 
 Alternatively, to just get all dependencies:
