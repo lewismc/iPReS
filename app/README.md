@@ -78,6 +78,19 @@ The above code is an example of stubbing a call to the `po.daac` service.  It ta
 
 More examples can be found in any of the [test files](https://github.com/lewismc/iPReS/tree/master/app/test/app).
 
+## Generating Documentation
+
+Pure dead simple...
+
+    lein doc
+
+You'll see something like this
+
+    ...
+    Retrieving hiccup/hiccup/1.0.5/hiccup-1.0.5.jar from clojars
+    Retrieving codox/codox.core/0.8.11/codox.core-0.8.11.jar from clojars
+    Generated HTML docs in /usr/local/iPReS/app/doc 
+
 ## Libraries Used
 
 * [Leiningen](http://leiningen.org/)
@@ -86,3 +99,4 @@ More examples can be found in any of the [test files](https://github.com/lewismc
 * [Core.cache](https://github.com/clojure/core.cache)
 * [Apache Tika Translate](https://github.com/apache/tika)
 * [Clj-xpath](https://github.com/kyleburton/clj-xpath)
+* [codox](https://github.com/weavejester/codox) - for documentation

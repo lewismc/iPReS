@@ -11,7 +11,8 @@
                            [org.clojure/core.cache "0.6.4"]
                            [org.apache.tika/tika-translate "1.7"]
                            [com.github.kyleburton/clj-xpath "1.4.4"]]
-            :plugins [[lein-ring "0.8.12"]]
+            :plugins [[lein-ring "0.8.12"]
+                      [codox "0.8.11"]]
             :ring {:handler app.handler/app}
             :profiles
             {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
