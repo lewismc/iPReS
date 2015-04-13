@@ -163,7 +163,8 @@
 (defroutes ipres
            (context "/:lang" [lang]
                     (if (is-supported? lang)
-                      (api-routes lang))))
+                      (api-routes lang)
+                      (response "Not found."))))
 
 (def app
   (->
