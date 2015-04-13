@@ -123,7 +123,7 @@
     "Returns the translated dataset into the specified language
   using Apache Tika."
   [dataset lang]
-  (pmap (fn [x] (.translate translator x "en" lang)) dataset))
+  (pmap (fn [x] (.translate translator (str/replace x #"\\/" "/") "en" lang)) dataset))
 
 (defn translate-to-lang
   "Returns PO.DAAC dataset specified by the given language."
