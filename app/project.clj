@@ -10,7 +10,8 @@
                            [clojurewerkz/spyglass "1.1.0"]
                            [org.clojure/core.cache "0.6.4"]
                            [org.apache.tika/tika-translate "1.7"]
-                           [com.github.kyleburton/clj-xpath "1.4.4"]]
+                           [com.github.kyleburton/clj-xpath "1.4.4"]
+                           [ring.middleware.logger "0.5.0"]]
             :plugins [[lein-ring "0.8.12"]
                       [codox "0.8.11"]]
             :ring {:handler app.handler/app}

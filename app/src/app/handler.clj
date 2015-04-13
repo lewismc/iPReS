@@ -1,7 +1,8 @@
 (ns app.handler
   (:use compojure.core)
   (:use [ring.util.response :only [response]]
-        [ring.middleware.json :only [wrap-json-response]])
+        [ring.middleware.json :only [wrap-json-response]]
+        [ring.middleware.logger :only [wrap-with-logger]])
 
   (:require [compojure.handler :as handler]
             [compojure.route :as route]
@@ -169,6 +170,6 @@
 (def app
   (->
     (handler/api ipres)
-
+    (wrap-with-logger)
     ;; this code will go away eventually
     (wrap-json-response)))
