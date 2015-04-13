@@ -72,7 +72,7 @@ When stubbing service calls ("faking" a call to the service), we use the handy [
                                                          
 The above code is an example of stubbing a call to the `po.daac` service.  It takes two macros, one with the provided temporary redefinition of `hit-podaac` (specified in an anonymous function), and another which represents the function to be tested.  Every instance of `hit-podaac` in the chain of functions called by `translate-request` will then be replaced with our definition here (in this case, it will always return `bananas`).
 
-More examples can be found in any of the test files.
+More examples can be found in any of the [test files](https://github.com/lewismc/iPReS/tree/master/app/test/app).
 
 ## Libraries Used
 
