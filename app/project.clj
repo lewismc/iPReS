@@ -1,6 +1,8 @@
 (defproject app "0.1.0-SNAPSHOT"
-            :description "iPReS app"
-            :url "http://example.com/FIXME"
+            :description "iPReS application"
+             :license {:name "Apache License v2.0"
+                           :url "http://www.apache.org/licenses/LICENSE-2.0"}
+            :url "https://github.com/lewismc/iPReS/tree/master/app"
             :min-lein-version "2.0.0"
             :dependencies [[org.clojure/clojure "1.6.0"]
                            [compojure "1.1.9"]
