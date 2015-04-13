@@ -20,6 +20,9 @@ The project website can be located at - http://lewismc.github.io/iPReS/
 #Community Mailing List
 Please visit and subscribe to our [Google Group](https://groups.google.com/forum/#!forum/ipres-capstone) for all the project news.
 
+# Installation 
+Please refer to the [Application Installation](https://github.com/lewismc/iPReS/tree/master/app) instructions. This also details the [prerequisite software](https://github.com/lewismc/iPReS/tree/master/app#prerequisites-for-local-development) installation requirements.
+
 #Supported Product Translations
 We aim to support the following list of language translations:
 

@@ -13,10 +13,14 @@ Where `<lang_code>` is a supported language code specified [here](https://github
 
     localhost:3000/ko/metadata/dataset?datasetId=PODAAC-GHMG2-2PO01&shortName=OSDPD-L2P-MSG02 
     
+Mandatory and optional metadata paramters are defined and maintained by PO.DAAC and can be found [here](http://podaac.jpl.nasa.gov/ws/metadata/dataset/index.html#params).
+
 /metadata/granule:
 
     http://localhost:3000/ko/metadata/granule?datasetId=PODAAC-GHMG2-2PO01&shortName=OSDPD-L2P-MSG02&granuleName=20120912-MSG02-OSDPD-L2P-MSG02_0200Z-v01.nc&format=iso
-    
+
+Mandatory and optional granule paramters are defined and maintained by PO.DAAC and can be found [here](http://podaac.jpl.nasa.gov/ws/metadata/granule/index.html#params).
+
 ...rest are TBD until they appear to work correctly.
 
 ## Deploy Location
@@ -31,6 +35,8 @@ You will need [Leiningen][1] 1.7.0 or above installed.
 
 ## How to run (locally)
 
+    # make sure you are in the $IPRES_HOME/app directory
+    cd app
     lein ring server
 
 Alternatively, to just get all dependencies:
@@ -70,7 +76,7 @@ When stubbing service calls ("faking" a call to the service), we use the handy [
                                                          
 The above code is an example of stubbing a call to the `po.daac` service.  It takes two macros, one with the provided temporary redefinition of `hit-podaac` (specified in an anonymous function), and another which represents the function to be tested.  Every instance of `hit-podaac` in the chain of functions called by `translate-request` will then be replaced with our definition here (in this case, it will always return `bananas`).
 
-More examples can be found in any of the test files.
+More examples can be found in any of the [test files](https://github.com/lewismc/iPReS/tree/master/app/test/app).
 
 ## Libraries Used
 
