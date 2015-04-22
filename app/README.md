@@ -1,39 +1,11 @@
-The iPReS app.
+The iPReS app
+=============
 
-## Routes
-All routes for the service follow this pattern:
+# Prerequisites For Local Development
 
-    <domain>/<lang_code>/<route>?<params>
-    
-Where `<lang_code>` is a supported language code specified [here](https://github.com/lewismc/iPReS#supported-product-translations), `<route>` is a route which mirrors one of [PO.DAAC's Web Service](http://podaac.jpl.nasa.gov/ws/index.html) routes, and `<params>` follow the same rules as PO.DAAC Web Service route parameters.
-    
-## Example Usage
+You will need [Leiningen](https://github.com/technomancy/leiningen) 1.7.0 or above installed.
 
-/metadata/dataset:
-
-    localhost:3000/ko/metadata/dataset?datasetId=PODAAC-GHMG2-2PO01&shortName=OSDPD-L2P-MSG02 
-    
-Mandatory and optional metadata paramters are defined and maintained by PO.DAAC and can be found [here](http://podaac.jpl.nasa.gov/ws/metadata/dataset/index.html#params).
-
-/metadata/granule:
-
-    http://localhost:3000/ko/metadata/granule?datasetId=PODAAC-GHMG2-2PO01&shortName=OSDPD-L2P-MSG02&granuleName=20120912-MSG02-OSDPD-L2P-MSG02_0200Z-v01.nc&format=iso
-
-Mandatory and optional granule paramters are defined and maintained by PO.DAAC and can be found [here](http://podaac.jpl.nasa.gov/ws/metadata/granule/index.html#params).
-
-...rest are TBD until they appear to work correctly.
-
-## Deploy Location
-
-[Here](https://github.com/NSF-Polar-Cyberinfrastructure/datavis-hackathon#amazon-instance-and-data-buckets).
-
-## Prerequisites For Local Development
-
-You will need [Leiningen][1] 1.7.0 or above installed.
-
-[1]: https://github.com/technomancy/leiningen
-
-## How to run (locally)
+# How to run (locally)
 
     # make sure you are in the $IPRES_HOME/app directory
     cd app
@@ -41,9 +13,39 @@ You will need [Leiningen][1] 1.7.0 or above installed.
 
 Alternatively, to just get all dependencies:
 
-    lein deps
+lein deps
+
+# REST API
+
+All routes for the service follow this pattern:
+
+    <domain:port>/<lang_code>/<route>?<params>
     
-## How to run tests
+Where `<lang_code>` is a supported language code specified [here](https://github.com/lewismc/iPReS#supported-product-translations), `<route>` is a route which mirrors one of [PO.DAAC's Web Service](http://podaac.jpl.nasa.gov/ws/index.html) routes, and `<params>` follow the same rules as PO.DAAC Web Service route parameters.
+    
+# Example Usage
+
+## Dataset Metadata Translation
+
+/metadata/dataset:
+
+    localhost:3000/ko/metadata/dataset?datasetId=PODAAC-GHMG2-2PO01&shortName=OSDPD-L2P-MSG02 
+    
+Mandatory and optional metadata paramters are defined and maintained by PO.DAAC and can be found [here](http://podaac.jpl.nasa.gov/ws/metadata/dataset/index.html#params).
+
+## Granule Metadata Translation
+
+/metadata/granule:
+
+    http://localhost:3000/ko/metadata/granule?datasetId=PODAAC-GHMG2-2PO01&shortName=OSDPD-L2P-MSG02&granuleName=20120912-MSG02-OSDPD-L2P-MSG02_0200Z-v01.nc&format=iso
+
+Mandatory and optional granule paramters are defined and maintained by PO.DAAC and can be found [here](http://podaac.jpl.nasa.gov/ws/metadata/granule/index.html#params).
+
+# Deploy Location
+
+[Here](https://github.com/NSF-Polar-Cyberinfrastructure/datavis-hackathon#amazon-instance-and-data-buckets).
+    
+# How to run tests
 
 To run the whole suite:
 
@@ -57,7 +59,7 @@ To run a specific test function (in this case, the basic cache test function):
 
     lein test :only app.cache-test/basic-cache-test
     
-## Testing Style
+# Testing Style
 
 All tests are (currently) using the standard test library provided with the language.  This may change, as it isn't always the greatest when it comes to reporting.  Example:
 
@@ -78,7 +80,7 @@ The above code is an example of stubbing a call to the `po.daac` service.  It ta
 
 More examples can be found in any of the [test files](https://github.com/lewismc/iPReS/tree/master/app/test/app).
 
-## Generating Documentation
+# Generating Documentation
 
 Pure dead simple...
 
@@ -91,7 +93,7 @@ You'll see something like this
     Retrieving codox/codox.core/0.8.11/codox.core-0.8.11.jar from clojars
     Generated HTML docs in /usr/local/iPReS/app/doc 
 
-## Libraries Used
+# Libraries Used
 
 * [Leiningen](http://leiningen.org/)
 * [Ring](https://github.com/ring-clojure/ring)
