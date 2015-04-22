@@ -8,12 +8,12 @@ You will need [Leiningen](https://github.com/technomancy/leiningen) 1.7.0 or abo
 # How to run (locally)
 
     # make sure you are in the $IPRES_HOME/app directory
-    cd app
-    lein ring server
+    $ cd app
+    $ lein ring server
 
 Alternatively, to just get all dependencies:
 
-lein deps
+    $ lein deps
 
 # REST API
 
@@ -49,15 +49,15 @@ Mandatory and optional granule paramters are defined and maintained by PO.DAAC a
 
 To run the whole suite:
 
-    lein test
+    $ lein test
     
 To run a specific namespace test (in this case, the cache test file):
 
-    lein test app.cache-test
+    $ lein test app.cache-test
     
 To run a specific test function (in this case, the basic cache test function):
 
-    lein test :only app.cache-test/basic-cache-test
+    $ lein test :only app.cache-test/basic-cache-test
     
 # Testing Style
 
@@ -84,7 +84,7 @@ More examples can be found in any of the [test files](https://github.com/lewismc
 
 Pure dead simple...
 
-    lein doc
+    $ lein doc
 
 You'll see something like this
 
