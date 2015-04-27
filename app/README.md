@@ -41,6 +41,26 @@ Mandatory and optional metadata paramters are defined and maintained by PO.DAAC 
 
 Mandatory and optional granule paramters are defined and maintained by PO.DAAC and can be found [here](http://podaac.jpl.nasa.gov/ws/metadata/granule/index.html#params).
 
+## Search Dataset Translation
+
+    http://localhost:3000/es/search/dataset?keyword=modi
+
+Mandatory and optional search/dataset parameters are defined and maintained by PO.DAAC and can be found [here](http://podaac.jpl.nasa.gov/ws/search/dataset/index.html)
+
+## Search Granule Translation
+
+    http://localhost:3000/es/search/granule?datasetId=PODAAC-GHMDA-2PJ01&startTime=2011-01-01T01:01:00Z&itemsPerPage=1
+    
+Mandatory and optional search/granule parameters are defined and maintained by PO.DAAC and can be found [here](http://podaac.jpl.nasa.gov/ws/search/granule/index.html)
+
+## Image Granule Translation
+
+Not supported, as this only returns images.
+
+## Extract Granule Translation
+
+Not supported (yet), due to Netcdf and HDF being unsupported at this time.
+
 # Deploy Location
 
 [Here](https://github.com/NSF-Polar-Cyberinfrastructure/datavis-hackathon#amazon-instance-and-data-buckets).
