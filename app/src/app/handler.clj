@@ -35,8 +35,8 @@
   http://podaac.jpl.nasa.gov/ws/metadata/dataset/index.html"
   [request]
   (let [supported-params [:datasetId :shortName :format]]
-    (and (contains? request :datasetId)
-         (contains? request :shortName)
+    (and (or (contains? request :datasetId)
+             (contains? request :shortName))
          (no-bogus-params? supported-params (keys request)))))
 
 (defn metadata-granule-is-valid?
@@ -88,29 +88,8 @@
   (let [supported-params [:datasetId :shortName :startTime :endTime
                           :bbox :startIndex :itemsPerPage :sortBy
                           :format :pretty]]
-    (and (contains? request :datasetId)
-         (contains? request :shortName)
-         (no-bogus-params? supported-params (keys request)))))
-
-(defn image-granule-is-valid?
-  "Returns true if a request for an iPReS Image Granule
-  supplies the required parameters, as detailed by:
-
-  http://podaac.jpl.nasa.gov/ws/image/granule/index.html"
-  [request]
-  (let [supported-params [:datasetId :shortName :granuleName :request
-                          :service :version :format :bbox
-                          :height :width :layers :style :srs]]
-    (and (contains? request :datasetId)
-         (contains? request :shortName)
-         (contains? request :granuleName)
-         (contains? request :request)
-         (contains? request :service)
-         (contains? request :version)
-         (contains? request :format)
-         (contains? request :bbox)
-         (contains? request :height)
-         (contains? request :width)
+    (and (or (contains? request :datasetId)
+             (contains? request :shortName))
          (no-bogus-params? supported-params (keys request)))))
 
 (defn extract-granule-is-valid?
@@ -147,16 +126,11 @@
            (if (search-granule-is-valid? req)
              (response (core/translate-request
                         "search/granule" req lang "")))))
-    (GET "/image/granule" [& request]
-         (let [req (dissoc request :lang)]
-           (if (image-granule-is-valid? req)
-             (response (core/translate-request
-                        "image/granule" req lang "")))))
-    (GET "/extract/granule" [& request]
-         (let [req (dissoc request :lang)]
-           (if (extract-granule-is-valid? req)
-             (response (core/translate-request
-                        "extract/granule" req lang "")))))
+    ;;(GET "/extract/granule" [& request]
+    ;;     (let [req (dissoc request :lang)]
+    ;;       (if (extract-granule-is-valid? req)
+    ;;         (response (core/translate-request
+    ;;                    "extract/granule" req lang "")))))
     (route/not-found
       (response "Not found."))))
 
@@ -171,5 +145,5 @@
   (->
     (handler/api ipres)
     (wrap-with-logger)
-    ;; this code will go away eventually
+    ;; this code will go away eventually ... maybe
     (wrap-json-response)))
