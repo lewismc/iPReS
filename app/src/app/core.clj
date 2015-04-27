@@ -17,7 +17,6 @@
   (:require
     [app.cache :refer :all]
     [clojure.string :as str]
-    [clojure.xml :as xml]
     [clj-xpath.core :as xpath]
     [ring.util.codec :as codec])
     (:import (org.apache.tika.language.translate MicrosoftTranslator)))
@@ -145,16 +144,7 @@
   [dataset key lang]
   (cache-add key (translate-with-tika dataset lang))
   (cache-lookup key))
-
-(defn convert-to-format
-  "Return dataset in specified format
-
-  TODO: Add file conversion"
-  [dataset format]
-
-  ;; temporary return statement
-  (xml/emit dataset))
-
+  
 ;;;;;;;;;;
 ;;
 ;; Top-level region
