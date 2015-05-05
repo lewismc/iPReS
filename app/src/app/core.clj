@@ -134,17 +134,19 @@
 (def translator (MicrosoftTranslator.))
 
 (defn translate-with-tika
-    "Returns the translated dataset into the specified language
+  "Returns the translated dataset into the specified language
   using Apache Tika."
-  [dataset lang]
-  (pmap (fn [x] (.translate translator (str/replace x #"\\/" "/") "en" lang)) dataset))
+  [dataset lang-code]
+  ;; Logging to console for requirements proving
+  (println "\n\n\n\n\nDEBUG: Attempting to translate by calling Tika-translate...\n\n\n\n\n")
+  (pmap (fn [x] (.translate translator (str/replace x #"\\/" "/") source-language lang-code)) dataset))
 
 (defn translate-to-lang
   "Returns PO.DAAC dataset specified by the given language."
   [dataset key lang]
   (cache-add key (translate-with-tika dataset lang))
   (cache-lookup key))
-  
+
 ;;;;;;;;;;
 ;;
 ;; Top-level region
