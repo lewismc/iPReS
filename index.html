@@ -1,189 +1,211 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <style>
-  </style>
+    <style>
+    </style>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-
     <title>iPReS</title>
   </head>
-
   <body>
-  <header>
-	     
-      
-        <section id="downloads" >
-          <a href="https://github.com/lewismc/iPReS/zipball/master" class="btn">Download as .zip</a>
-          <a href="https://github.com/lewismc/iPReS/tarball/master" class="btn">Download as .tar.gz</a>
-          <a href="https://github.com/lewismc/iPReS" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
-          <a href="#google-forum" class="btn">Jump to Google Forum</a>	  
-        </section>
-      
+    <header>
+      <section id="downloads" >
+        <a href="https://github.com/lewismc/iPReS/zipball/master" class="btn">Download as .zip</a>
+        <a href="https://github.com/lewismc/iPReS/tarball/master" class="btn">Download as .tar.gz</a>
+        <a href="https://github.com/lewismc/iPReS" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        <a href="#google-forum" class="btn">Jump to Google Forum</a>	  
+      </section>
     </header>
-
-<div class="container">
-<section id="main_content">
-
-<h2>
-<a name="top" class"anhor" href="#top"><span class="octicon octicon-link"></span></a>
-The Internationalization (i18n) Product Retrieval Service (iPReS)</h3><br>
-
-<h3>
-<a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Project Overview</h3>
-
-<p>The Internationalization (i18n) Product Retrieval Service is a web service and client providing i18n-type access to products and product metadata contained 	within <a href="http://www.jpl.nasa.gov">NASA JPL's</a> <a href="http://podaac.jpl.nasa.gov">Physical Oceanography Distributed Active Archive Center</a>, 		otherwise known as PO.DAAC.</p>
-
-<p>The software implements a <a href="http://en.wikipedia.org/wiki/Representational_state_transfer">RESTful</a> <a href="http://cxf.apache.org/">Apache CXF</a> web-service and client to obtain data from the <a href="http://podaac.jpl.nasa.gov/ws/index.html">PO.DAAC Web-Services API</a>. It then translates the product metadata into a target language provided along with the intial call to the service.</p><br>
-
-<h3>
-<a name="news" class="anchor" href="#news"><span class="octicon octicon-link"></span></a>Project News</h3>
-<p>
-<ul>
-  <li><b>iPReS @ <a href="https://ieee-collabratec.ieee.org/app/event/35560">2015 IEEE 16th International Conference on Information Reuse and Integration</a></b>: The iPReS Project was included within conference proceedings in the paper titled <a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=7300977">Enabling Linguistic Analysis of Scientific Metadata through Internationalizing NASA JPL's PODAAC</a>. The event was held 13-15 August 2015 in San Francisco, California, USA.</li>
-  <li><b>iPReS @ <a href="http://events.linuxfoundation.org/events/apachecon-north-america">ApacheCon NA 2015, Austin, TX</a></b>: The iPReS Project is being represented at ApacheCon NA 2015 which is taking place in the Hyatt, Austin, TX 13th-16th, 2015. The presentation on <a href="http://sched.co/2P7t">Exploring Apache Tika's Translate API to Enable Linguistic Analysis of Scientific Metadata through Internationalizing NASA JPL’s Physical Oceanographic Data Active Archive Centre</a> will cover the project demonstration and represent a HUGE platform and achivement for the iPReS project as it progresses towards completion within the Capstone project.</li>
-</ul>
-</p><br>
-
-<h3>
-<a name="supported-translations" class="anchor" href="#supported-translations"><span class="octicon octicon-link"></span></a>Supported Product Translations
-</h3>
-We aim to support the following list of language translations:
-
-<ul class="list">
-	<li>ar: Arabic</li>
-	<li>bg: Bulgarian</li>
-	<li>ca: Catalan</li>
-	<li>zh-CHS: Chinese Simplified</li>
-	<li>zh-CHT: Chinese Traditional</li>
-	<li>cs: Czech</li>
-	<li>da: Danish</li>
-	<li>nl: Dutch</li>
-	<li>en: English</li>
-	<li>et: Estonian</li>
-	<li>fi: Finnish</li>
-	<li>fr: French</li>
-	<li>de: German</li>
-	<li>el: Greek</li>
-	<li>ht: Haitian Creole</li>
-	<li>he: Hebrew</li>
-	<li>hi: Hindi</li>
-	<li>mww: Hmong Daw</li>
-	<li>hu: Hungarian</li>
-	<li>id: Indonesian</li>
-	<li>it: Italian</li>
-	<li>ja: Japanese</li>
-	<li>tlh: Klingon</li>
-	<li>tlh-Qaak: Klingon (pIqaD)</li>
-	<li>ko: Korean</li>
-	<li>lv: Latvian</li>
-	<li>lt: Lithuanian</li>
-	<li>ms: Malay</li>
-	<li>mt: Maltese</li>
-	<li>no: Norwegian</li>
-	<li>fa: Persian</li>
-	<li>pl: Polish</li>
-	<li>pt: Portuguese</li>
-	<li>ro: Romanian</li>
-	<li>ru: Russian</li>
-	<li>sk: Slovak</li>
-	<li>sl: Slovenian</li>
-	<li>es: Spanish</li>
-	<li>sv: Swedish</li>
-	<li>th: Thai</li>
-	<li>tr: Turkish</li>
-	<li>uk: Ukrainian</li>
-	<li>ur: Urdu</li>
-	<li>vi: Vietnamese</li>
-	<li>cy: Welsh</li>
-</ul><br>
-
-
-<h3>
-<a name="members" class="anchor" href="#members"><span class="octicon octicon-link"></span></a>Project Members</h3>
-<ul class="list">
-<li>Client Team</li><br>
-
-<li>Kathryn O’Brien</li>
-<li>Chris Mattmann</li>
-<li>Lewis John McGibbney</li>
-
-<li>Engineering Team</li><br>
-
-<li>Phillip Carter</li>
-<li>Bhavik Patel</li>
-<li>Daniel Song</li>
-
-</ul><br>
-
-<h3>
-<a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements To Be Finished</h3>
-<h5>( (): Indicates corresponding requirement in the <a href="https://docs.google.com/document/d/18CR03vkZaURATZ3fvabZnnFUXddnJB7GZDXWuQhweOw/edit?usp=sharing">Project Requirements Document</a>. )</h5><br>
-<hx>Requirements finished on 9th February, 2015</hx><br><br>
-
-<ol class="requirements">
-	<s><li>The system shall be able to break down each piece of a request, and understand which portions of PO.DAAC data sets are being requested. (6)</li></s>
-	<s><li>The system shall be able to filter and merge PO.DAAC data sets based on request information from Requirement 6. (7)</li></s>
-	<s><li>The system shall contain extensive tests to verify Requirement 6. (29)</li></s>
-	<s><li>The system shall contain extensive tests to verify Requirement 7. (8)</li></s>
-	<s><li>The system shall make use of Apache Tika to translate PO.DAAC data and metadata into a target language. (10)</li></s>
-	<s><li>The system shall contain a Distributed Cache on the PO.DAAC-facing layer which caches data and metadata which hasalready been translated.  This will be based on popularity, if requested data is a subset of other data sets, etc. (14)</li></s>
-	<s><li>The system shall recognize which data sets are to be cached, or which information is already cached (this information is still pending due to the need to communicate with the scientific community about their desires). (15)</li></s>
-	<s><li>The system shall make use of Ring, a mature HTTP abstraction library for writing web servers. (21)</li></s>
-	<s><li>The system shall use Leiningen (preferred) or Maven for build automation. (22)</li></s>
-</ol><br>
-
-<hx>Requirements finished by 17th March, 2015</hx><br><br>
-<ol class="requirements">
-	<s><li>The system shall contain extensive Unit tests to verify Requirement 10.(12)</li></s>
-	<s><li>The system shall contain extensive Unit Tests for Requirements 14 and 15.(16)</li></s>
-	<s><li>The system shall be capable of merging translated data sets from the cache and PO.DAAC/Tika services based on client requests. (17)</li></s>
-	<s><li>The system shall contain extensive Unit Tests for Requirement 17. (18)</li></s>
-	<s><li>The system shall contain an Integration Test which verifies the pieces of the system specified by Requirements 6, 7, 9, 10, 13, 14, and 15 communicate correctly. (19)</li></s>
-	<s><li>The system shall make use of Compojure for handling API routing.(20)</li></s>
-	<s><li>The system shall be capable of handling multiple clients.  At the minimum, data requested shall be serviced to the correct client under concurrent request scenarios. (3)</li> </s>
-	<s><li>The client-facing layer shall be capable of exposing requested data sets in Scientific Data Formats Oceanographers are used to using (HDF4, HDF5, etc).  The specific data formats will be determined in the future based on the demand for the system. (23)</li></s>
-	<s><li>The system shall adhere to REST methodology, and aim for being easily-integrated into future mobile applications focused on data analysis. (27)</li></s>
-</ol><br>
-
-<hx>To Be Finished By Expo - 15th May, 2015 (Bugs fixed, tested, scalable, etc)</hx><br><br>
-<ol class="requirements">
-<li>The system shall ideally support all of the languages mentioned in the supported translations list (1)</li>
-<li>The system shall be able to handle at least 25 concurrent requests without experiencing some kind of error. (4)</li>
-<li>The system shall contain extensive tests to verify Requirements 3 and 4. (5)</li>
-<li>The system shall make use of Apache Tika to translate PO.DAAC data and metadata into a target language. (10)</li>
-<li>The system shall aim to tie in with other software tools available within the PO.DAAC development components and sandbox.  The aim is to further increase the usefulness of the iPReS service. (26)</li>
-<li>The system shall contain a System Load Test which attempts to crash the service when all pieces are connected. (28)</li>
-</ol><br>
-
-
-<h3>
-<a name="google-forum" class="anchor" href="#google-forum"><span class="octicon octicon-link"></span></a>Google Forum</h3>
-
-<iframe id="forum_embed"
-  style='background: white;'
-  allowtransparency="false"
-  src="javascript:void(0)"
-  scrolling="no"
-  frameborder="0"
-  width="500"
-  height="700"></iframe>
-
-<script type="text/javascript">
-  document.getElementById('forum_embed').src =
-     'https://groups.google.com/forum/embed/?place=forum/ipres-capstone'
-     + '&showsearch=true&showpopout=true&showtabs=false'
-     + '&parenturl=' + encodeURIComponent(window.location.href);
-</script> <br>
-<a href="#top">Back to top</a>
-      
-	</section>
+    <div class="container">
+      <section id="main_content">
+        <h2>
+        <a name="top" class"anhor" href="#top"><span class="octicon octicon-link"></span></a>
+        The Internationalization (i18n) Product Retrieval Service (iPReS)</h3><br>
+        <h3>
+          <a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Project Overview
+        </h3>
+        <p>The Internationalization (i18n) Product Retrieval Service is a web service and client providing i18n-type access to products and product metadata contained 	within <a href="http://www.jpl.nasa.gov">NASA JPL's</a> <a href="http://podaac.jpl.nasa.gov">Physical Oceanography Distributed Active Archive Center</a>, 		otherwise known as PO.DAAC.</p>
+        <p>The software implements a <a href="http://en.wikipedia.org/wiki/Representational_state_transfer">RESTful</a> web-service and client to obtain data from the <a href="http://podaac.jpl.nasa.gov/ws/index.html">PO.DAAC Web-Services API</a>. It then translates the product metadata into a target language provided along with the intial call to the service.</p>
+        <br>
+        <h3>
+          <a name="news" class="anchor" href="#news"><span class="octicon octicon-link"></span></a>Project News
+        </h3>
+        <p>
+        <ul>
+          <li><b>iPReS @ <a href="https://ieee-collabratec.ieee.org/app/event/35560">2015 IEEE 16th International Conference on Information Reuse and Integration</a></b>: The iPReS Project was included within conference proceedings in the paper titled <a href="http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=7300977">Enabling Linguistic Analysis of Scientific Metadata through Internationalizing NASA JPL's PODAAC</a>. The event was held 13-15 August 2015 in San Francisco, California, USA. Please see the <a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=7300977">Full-text as PDF</a>, <a href="http://dx.doi.org/10.1109/IRI.2015.41">Full-text in HTML</a> and the <a href="docs/iri2015_ipres_poster.pdf">Conference Poster</a>.</li>
+          <li><b>iPReS @ <a href="http://events.linuxfoundation.org/events/apachecon-north-america">ApacheCon NA 2015, Austin, TX</a></b>: The iPReS Project is being represented at ApacheCon NA 2015 which is taking place in the Hyatt, Austin, TX 13th-16th, 2015. The presentation on <a href="http://sched.co/2P7t">Exploring Apache Tika's Translate API to Enable Linguistic Analysis of Scientific Metadata through Internationalizing NASA JPL’s Physical Oceanographic Data Active Archive Centre</a> will cover the project demonstration and represent a HUGE platform and achivement for the iPReS project as it progresses towards completion within the Capstone project.</li>
+        </ul>
+        </p><br>
+        <h3>
+          <a name="supported-translations" class="anchor" href="#supported-translations"><span class="octicon octicon-link"></span></a>Supported Product Translations
+        </h3>
+        We aim to support the following list of language translations:
+        <ul class="list">
+          <li>ar: Arabic</li>
+          <li>bg: Bulgarian</li>
+          <li>ca: Catalan</li>
+          <li>zh-CHS: Chinese Simplified</li>
+          <li>zh-CHT: Chinese Traditional</li>
+          <li>cs: Czech</li>
+          <li>da: Danish</li>
+          <li>nl: Dutch</li>
+          <li>en: English</li>
+          <li>et: Estonian</li>
+          <li>fi: Finnish</li>
+          <li>fr: French</li>
+          <li>de: German</li>
+          <li>el: Greek</li>
+          <li>ht: Haitian Creole</li>
+          <li>he: Hebrew</li>
+          <li>hi: Hindi</li>
+          <li>mww: Hmong Daw</li>
+          <li>hu: Hungarian</li>
+          <li>id: Indonesian</li>
+          <li>it: Italian</li>
+          <li>ja: Japanese</li>
+          <li>tlh: Klingon</li>
+          <li>tlh-Qaak: Klingon (pIqaD)</li>
+          <li>ko: Korean</li>
+          <li>lv: Latvian</li>
+          <li>lt: Lithuanian</li>
+          <li>ms: Malay</li>
+          <li>mt: Maltese</li>
+          <li>no: Norwegian</li>
+          <li>fa: Persian</li>
+          <li>pl: Polish</li>
+          <li>pt: Portuguese</li>
+          <li>ro: Romanian</li>
+          <li>ru: Russian</li>
+          <li>sk: Slovak</li>
+          <li>sl: Slovenian</li>
+          <li>es: Spanish</li>
+          <li>sv: Swedish</li>
+          <li>th: Thai</li>
+          <li>tr: Turkish</li>
+          <li>uk: Ukrainian</li>
+          <li>ur: Urdu</li>
+          <li>vi: Vietnamese</li>
+          <li>cy: Welsh</li>
+        </ul>
+        <br>
+        <h3>
+          <a name="members" class="anchor" href="#members"><span class="octicon octicon-link"></span></a>Project Members
+        </h3>
+        <ul class="list">
+          <li>Client Team</li>
+          <br>
+          <li>Kathryn O’Brien</li>
+          <li>Chris Mattmann</li>
+          <li>Lewis John McGibbney</li>
+          <li>Engineering Team</li>
+          <br>
+          <li>Phillip Carter</li>
+          <li>Bhavik Patel</li>
+          <li>Daniel Song</li>
+        </ul>
+        <br>
+        <h3>
+          <a name="requirements" class="anchor" href="#requirements"><span class="octicon octicon-link"></span></a>Requirements To Be Finished
+        </h3>
+        <h5>( (): Indicates corresponding requirement in the <a href="https://docs.google.com/document/d/18CR03vkZaURATZ3fvabZnnFUXddnJB7GZDXWuQhweOw/edit?usp=sharing">Project Requirements Document</a>. )</h5>
+        <br>
+        <hx>Requirements finished on 9th February, 2015</hx>
+        <br><br>
+        <ol class="requirements">
+          <s>
+            <li>The system shall be able to break down each piece of a request, and understand which portions of PO.DAAC data sets are being requested. (6)</li>
+          </s>
+          <s>
+            <li>The system shall be able to filter and merge PO.DAAC data sets based on request information from Requirement 6. (7)</li>
+          </s>
+          <s>
+            <li>The system shall contain extensive tests to verify Requirement 6. (29)</li>
+          </s>
+          <s>
+            <li>The system shall contain extensive tests to verify Requirement 7. (8)</li>
+          </s>
+          <s>
+            <li>The system shall make use of Apache Tika to translate PO.DAAC data and metadata into a target language. (10)</li>
+          </s>
+          <s>
+            <li>The system shall contain a Distributed Cache on the PO.DAAC-facing layer which caches data and metadata which hasalready been translated.  This will be based on popularity, if requested data is a subset of other data sets, etc. (14)</li>
+          </s>
+          <s>
+            <li>The system shall recognize which data sets are to be cached, or which information is already cached (this information is still pending due to the need to communicate with the scientific community about their desires). (15)</li>
+          </s>
+          <s>
+            <li>The system shall make use of Ring, a mature HTTP abstraction library for writing web servers. (21)</li>
+          </s>
+          <s>
+            <li>The system shall use Leiningen (preferred) or Maven for build automation. (22)</li>
+          </s>
+        </ol>
+        <br>
+        <hx>Requirements finished by 17th March, 2015</hx>
+        <br><br>
+        <ol class="requirements">
+          <s>
+            <li>The system shall contain extensive Unit tests to verify Requirement 10.(12)</li>
+          </s>
+          <s>
+            <li>The system shall contain extensive Unit Tests for Requirements 14 and 15.(16)</li>
+          </s>
+          <s>
+            <li>The system shall be capable of merging translated data sets from the cache and PO.DAAC/Tika services based on client requests. (17)</li>
+          </s>
+          <s>
+            <li>The system shall contain extensive Unit Tests for Requirement 17. (18)</li>
+          </s>
+          <s>
+            <li>The system shall contain an Integration Test which verifies the pieces of the system specified by Requirements 6, 7, 9, 10, 13, 14, and 15 communicate correctly. (19)</li>
+          </s>
+          <s>
+            <li>The system shall make use of Compojure for handling API routing.(20)</li>
+          </s>
+          <s>
+            <li>The system shall be capable of handling multiple clients.  At the minimum, data requested shall be serviced to the correct client under concurrent request scenarios. (3)</li>
+          </s>
+          <s>
+            <li>The client-facing layer shall be capable of exposing requested data sets in Scientific Data Formats Oceanographers are used to using (HDF4, HDF5, etc).  The specific data formats will be determined in the future based on the demand for the system. (23)</li>
+          </s>
+          <s>
+            <li>The system shall adhere to REST methodology, and aim for being easily-integrated into future mobile applications focused on data analysis. (27)</li>
+          </s>
+        </ol>
+        <br>
+        <hx>To Be Finished By Expo - 15th May, 2015 (Bugs fixed, tested, scalable, etc)</hx>
+        <br><br>
+        <ol class="requirements">
+          <li>The system shall ideally support all of the languages mentioned in the supported translations list (1)</li>
+          <li>The system shall be able to handle at least 25 concurrent requests without experiencing some kind of error. (4)</li>
+          <li>The system shall contain extensive tests to verify Requirements 3 and 4. (5)</li>
+          <li>The system shall make use of Apache Tika to translate PO.DAAC data and metadata into a target language. (10)</li>
+          <li>The system shall aim to tie in with other software tools available within the PO.DAAC development components and sandbox.  The aim is to further increase the usefulness of the iPReS service. (26)</li>
+          <li>The system shall contain a System Load Test which attempts to crash the service when all pieces are connected. (28)</li>
+        </ol>
+        <br>
+        <h3>
+          <a name="google-forum" class="anchor" href="#google-forum"><span class="octicon octicon-link"></span></a>Google Forum
+        </h3>
+        <iframe id="forum_embed"
+          style='background: white;'
+          allowtransparency="false"
+          src="javascript:void(0)"
+          scrolling="no"
+          frameborder="0"
+          width="500"
+          height="700"></iframe>
+        <script type="text/javascript">
+          document.getElementById('forum_embed').src =
+             'https://groups.google.com/forum/embed/?place=forum/ipres-capstone'
+             + '&showsearch=true&showpopout=true&showtabs=false'
+             + '&parenturl=' + encodeURIComponent(window.location.href);
+        </script> <br>
+        <a href="#top">Back to top</a>
+      </section>
     </div>
-
-    
   </body>
 </html>
