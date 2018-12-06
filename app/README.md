@@ -9,7 +9,7 @@ You will need [Leiningen](https://github.com/technomancy/leiningen) 1.7.0 or abo
 
     # make sure you are in the $IPRES_HOME/app directory
     $ cd app
-    $ lein ring server
+    $ lein ring server-headless
 
 Alternatively, to just get all dependencies:
 

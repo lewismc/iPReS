@@ -133,33 +133,33 @@
 ;; Image Granule Tests
 ;;
 
-(deftest image-granule-is-valid?-happy-only-required
-  (testing "happy case with only the required parameters"
-    (is (= true (image-granule-is-valid? {:datasetId 12 :shortName "yes" :granuleName "no" :request "what"
-                                          :service   "banana" :version 99.99 :format "wrapped in paper"
-                                          :bbox      "what is this" :height 0 :width "acceptable"})))))
+; (deftest image-granule-is-valid?-happy-only-required
+;   (testing "happy case with only the required parameters"
+;     (is (= true (image-granule-is-valid? {:datasetId 12 :shortName "yes" :granuleName "no" :request "what"
+;                                           :service   "banana" :version 99.99 :format "wrapped in paper"
+;                                           :bbox      "what is this" :height 0 :width "acceptable"})))))
 
-(deftest image-granule-is-valid?-happy-additional-params
-  (testing "happy case where additional parameters are specified"
-    (is (= true (image-granule-is-valid? {:datasetId 12 :shortName "yes" :granuleName "no" :request "what"
-                                          :service   "banana" :version 99.99 :format "wrapped in paper"
-                                          :bbox      "what is this" :height 0 :width "acceptable" :layers "on google maps"})))))
+; (deftest image-granule-is-valid?-happy-additional-params
+;   (testing "happy case where additional parameters are specified"
+;     (is (= true (image-granule-is-valid? {:datasetId 12 :shortName "yes" :granuleName "no" :request "what"
+;                                           :service   "banana" :version 99.99 :format "wrapped in paper"
+;                                           :bbox      "what is this" :height 0 :width "acceptable" :layers "on google maps"})))))
 
-(deftest image-granule-is-valid?-not-all-required-params
-  (testing "sad case where not all required parameters are specfied"
-    (is (= false (image-granule-is-valid? {:datasetId 12 :shortName "yes" :granuleName "no" :request "what"
-                                           :service   "banana" :version 99.99 :format "wrapped in paper"
-                                           :bbox      "what is this" :height 0})))))
+; (deftest image-granule-is-valid?-not-all-required-params
+;   (testing "sad case where not all required parameters are specfied"
+;     (is (= false (image-granule-is-valid? {:datasetId 12 :shortName "yes" :granuleName "no" :request "what"
+;                                            :service   "banana" :version 99.99 :format "wrapped in paper"
+;                                            :bbox      "what is this" :height 0})))))
 
-(deftest image-granule-is-valid?-bogus-params
-  (testing "sad case with a bogus parameter added in"
-    (is (= false (image-granule-is-valid? {:datasetId 12 :shortName "yes" :granuleName "no" :request "what"
-                                           :service   "banana" :version 99.99 :format "wrapped in paper"
-                                           :bbox      "what is this" :height 0 :width "acceptable" :cowboy "yeehaw"})))))
+; (deftest image-granule-is-valid?-bogus-params
+;   (testing "sad case with a bogus parameter added in"
+;     (is (= false (image-granule-is-valid? {:datasetId 12 :shortName "yes" :granuleName "no" :request "what"
+;                                            :service   "banana" :version 99.99 :format "wrapped in paper"
+;                                            :bbox      "what is this" :height 0 :width "acceptable" :cowboy "yeehaw"})))))
 
-(deftest image-granule-is-valid?-null
-  (testing "null case"
-    (is (= false (image-granule-is-valid? nil)))))
+; (deftest image-granule-is-valid?-null
+;   (testing "null case"
+;     (is (= false (image-granule-is-valid? nil)))))
 
 
 ;;

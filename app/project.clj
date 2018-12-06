@@ -14,18 +14,18 @@
 ; limitations under the License.
 
 (defproject app "0.1.0-SNAPSHOT"
-            :description "iPReS application"
+            :description "iPReS Application"
              :license {:name "Apache License v2.0"
                            :url "http://www.apache.org/licenses/LICENSE-2.0"}
             :url "https://github.com/lewismc/iPReS/tree/master/app"
             :min-lein-version "2.0.0"
-            :dependencies [[org.clojure/clojure "1.10.0-RC3"]
+            :dependencies [[org.clojure/clojure "1.9.0"]
                            [compojure "1.6.1"]
                            [ring/ring-json "0.5.0-beta1"]
                            [org.clojure/core.cache "0.7.1"]
                            [org.apache.tika/tika-translate "1.19.1"]
                            [com.github.kyleburton/clj-xpath "1.4.11"]
-                           [ring.middleware.logger "0.5.0"]]
+                           [ring-logger "1.0.1"]]
             :plugins [[lein-ring "0.12.4"]
                       [codox "0.10.5"]]
             :ring {:handler app.handler/app}

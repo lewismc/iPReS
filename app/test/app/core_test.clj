@@ -95,13 +95,13 @@
 ;;
 ;;;;;;;;;;
 
-(def test-url "http://podaac.jpl.nasa.gov/ws/metadata/granule/?datasetId=PODAAC-GHMG2-2PO01&shortName=OSDPD-L2P-MSG02&granuleName=20120912-MSG02-OSDPD-L2P-MSG02_0200Z-v01.nc&format=iso")
+(def test-url "https://podaac.jpl.nasa.gov/ws/metadata/granule/?datasetId=PODAAC-GHK10-41N01&shortName=NAVO-L4HR1m-GLOB-K10_SST&granuleName=20180214-NAVO-L4HR1m-GLOB-v01-fv01_0-K10_SST.nc&format=iso")
 
 (def test-url-xml
   (memoize (fn [] (slurp test-url))))
 
 (def test-doc
-  (memoize (fn [] (xpath/xml->doc (test-url-xml)))))
+  (memoize (fn [] (xpath/xml->doc (test-url-xml) {:disallow-doctype-decl false}))))
 
 (defn- extract-root [xpath-doc]
   (first (xpath/$x "/*" (xpath-doc))))

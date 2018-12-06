@@ -18,6 +18,7 @@
     [app.cache :refer :all]
     [clojure.string :as str]
     [clj-xpath.core :as xpath]
+    [clj-xpath.lib :as lib]
     [ring.util.codec :as codec])
     (:import (org.apache.tika.language.translate MicrosoftTranslator)))
 
@@ -138,7 +139,7 @@
   using Apache Tika."
   [dataset lang-code]
   ;; Logging to console for requirements proving
-  (println "\n\n\n\n\nDEBUG: Attempting to translate by calling Tika-translate...\n\n\n\n\n")
+  (println "\n\n\n\n\nDEBUG: Attempting to translate by calling tika-translate...\n\n\n\n\n")
   (pmap (fn [x] (.translate translator (str/replace x #"\\/" "/") source-language lang-code)) dataset))
 
 (defn translate-to-lang
