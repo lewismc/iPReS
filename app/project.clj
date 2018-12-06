@@ -19,16 +19,16 @@
                            :url "http://www.apache.org/licenses/LICENSE-2.0"}
             :url "https://github.com/lewismc/iPReS/tree/master/app"
             :min-lein-version "2.0.0"
-            :dependencies [[org.clojure/clojure "1.6.0"]
-                           [compojure "1.1.9"]
-                           [ring/ring-json "0.3.1"]
-                           [org.clojure/core.cache "0.6.4"]
-                           [org.apache.tika/tika-translate "1.7"]
-                           [com.github.kyleburton/clj-xpath "1.4.4"]
+            :dependencies [[org.clojure/clojure "1.10.0-RC3"]
+                           [compojure "1.6.1"]
+                           [ring/ring-json "0.5.0-beta1"]
+                           [org.clojure/core.cache "0.7.1"]
+                           [org.apache.tika/tika-translate "1.19.1"]
+                           [com.github.kyleburton/clj-xpath "1.4.11"]
                            [ring.middleware.logger "0.5.0"]]
-            :plugins [[lein-ring "0.8.12"]
-                      [codox "0.8.11"]]
+            :plugins [[lein-ring "0.12.4"]
+                      [codox "0.10.5"]]
             :ring {:handler app.handler/app}
             :profiles
-            {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
+            {:dev {:dependencies [[javax.servlet/servlet-api "3.0-alpha-1"]
                                   [ring-mock "0.1.5"]]}})
