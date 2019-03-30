@@ -10,7 +10,7 @@ i18n-type access to products and product metadata contained within [NASA JPL's](
 PO.DAAC.
 
 The software implements a [RESTful](http://en.wikipedia.org/wiki/Representational_state_transfer) 
-web-service and client to obtain data from the NASA JPL's [PO.DAAC Web-Services API](http://podaac.jpl.nasa.gov/ws/index.html). It then translates the product metadata into a target language provided along with the intial call to the service.
+web-service and client to obtain data from the NASA JPL's [PO.DAAC Web-Services API](http://podaac.jpl.nasa.gov/ws/index.html). It then translates the product metadata into a target language provided along with the initial call to the service.
 
 # Citation
 There are a couple of ways to cite iPReS.
@@ -22,7 +22,8 @@ L. J. McGibbney, K. D. Whitehall, C. A. Mattmann and P. M. Carter, "Enabling Lin
 Note, if you cannot access the above paper, please check out the [IEEE IRI 2015 Poster](./docs/iri2015_ipres_poster.pdf)
 
 ## Zenodo
-As iPReS has never been released a Zenodo DOI is not yet available. Watch this space.
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2617379.svg)](https://doi.org/10.5281/zenodo.2617379)
 
 # Supported Product Translations
 Approaching one hundred... see [here](https://tech.yandex.com/translate/doc/dg/concepts/api-overview-docpage/#api-overview__languages) for an out-the-box list.
