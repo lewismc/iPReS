@@ -18,17 +18,17 @@
              :license {:name "Apache License v2.0"
                            :url "http://www.apache.org/licenses/LICENSE-2.0"}
             :url "https://github.com/lewismc/iPReS/tree/master/app"
-            :min-lein-version "2.0.0"
-            :dependencies [[org.clojure/clojure "1.9.0"]
+            :min-lein-version "2.9.1"
+            :dependencies [[org.clojure/clojure "1.10.0"]
                            [compojure "1.6.1"]
-                           [ring/ring-json "0.5.0-beta1"]
-                           [org.clojure/core.cache "0.7.1"]
-                           [org.apache.tika/tika-translate "1.19.1"]
+                           [ring/ring-json "0.4.0"]
+                           [org.clojure/core.cache "0.7.2"]
+                           [org.apache.tika/tika-translate "1.20"]
                            [com.github.kyleburton/clj-xpath "1.4.11"]
                            [ring-logger "1.0.1"]]
-            :plugins [[lein-ring "0.12.4"]
-                      [codox "0.10.5"]]
+            :plugins [[lein-ring "0.12.5"]
+                      [lein-codox "0.10.6"]]
             :ring {:handler app.handler/app}
             :profiles
             {:dev {:dependencies [[javax.servlet/servlet-api "3.0-alpha-1"]
-                                  [ring-mock "0.1.5"]]}})
+                                  [ring/ring-mock "0.3.2"]]}})

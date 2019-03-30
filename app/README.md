@@ -3,7 +3,7 @@ The iPReS app
 
 # Prerequisites For Local Development
 
-You will need [Leiningen](https://github.com/technomancy/leiningen) 1.7.0 or above installed.
+You will need [Leiningen](https://github.com/technomancy/leiningen/wiki/Packaging) >=2.9.1 (current as of March 2019) installed.
 
 # How to run (locally)
 
@@ -29,7 +29,7 @@ Where `<lang_code>` is a supported language code specified [here](https://github
 
 /metadata/dataset:
 
-    localhost:3000/ko/metadata/dataset?datasetId=PODAAC-GHMG2-2PO01&shortName=OSDPD-L2P-MSG02 
+    curl "http://localhost:3000/es/metadata/dataset?datasetId=PODAAC-GH19L-2PS01&shortName=NEODAAS-L2P-AVHRR19_L"
     
 Mandatory and optional metadata paramters are defined and maintained by PO.DAAC and can be found [here](http://podaac.jpl.nasa.gov/ws/metadata/dataset/index.html#params).
 
@@ -37,19 +37,21 @@ Mandatory and optional metadata paramters are defined and maintained by PO.DAAC 
 
 /metadata/granule:
 
-    http://localhost:3000/ko/metadata/granule?datasetId=PODAAC-GHMG2-2PO01&shortName=OSDPD-L2P-MSG02&granuleName=20120912-MSG02-OSDPD-L2P-MSG02_0200Z-v01.nc&format=iso
+    curl "http://localhost:3000/es/metadata/granule?datasetId=PODAAC-GH19L-2PS01&shortName=NEODAAS-L2P-AVHRR19_L&granuleName=20190329-AVHRR19_L-NEODAAS-L2P-29mar191726_wsst.8bit-v01.nc&format=iso"
 
 Mandatory and optional granule paramters are defined and maintained by PO.DAAC and can be found [here](http://podaac.jpl.nasa.gov/ws/metadata/granule/index.html#params).
 
 ## Search Dataset Translation
 
-    http://localhost:3000/es/search/dataset?keyword=modi
+    curl "http://localhost:3000/es/search/dataset?keyword=AVHRR-3"
 
 Mandatory and optional search/dataset parameters are defined and maintained by PO.DAAC and can be found [here](http://podaac.jpl.nasa.gov/ws/search/dataset/index.html)
 
 ## Search Granule Translation
 
-    http://localhost:3000/es/search/granule?datasetId=PODAAC-GHMDA-2PJ01&startTime=2011-01-01T01:01:00Z&itemsPerPage=1
+It should be noted that due to the limited metadata available in this response, the results are not particularly useful.
+
+    curl "http://localhost:3000/es/search/granule?datasetId=PODAAC-GH19L-2PS01&startTime=2019-03-29T00:00:00Z&itemsPerPage=1"
     
 Mandatory and optional search/granule parameters are defined and maintained by PO.DAAC and can be found [here](http://podaac.jpl.nasa.gov/ws/search/granule/index.html)
 
@@ -63,7 +65,7 @@ Not supported (yet), due to Netcdf and HDF being unsupported at this time.
 
 # Deploy Location
 
-[Here](https://github.com/NSF-Polar-Cyberinfrastructure/datavis-hackathon#amazon-instance-and-data-buckets).
+[Previous deployement location](https://github.com/NSF-Polar-Cyberinfrastructure/datavis-hackathon#amazon-instance-and-data-buckets).
     
 # How to run tests
 
@@ -115,10 +117,4 @@ You'll see something like this
 
 # Libraries Used
 
-* [Leiningen](http://leiningen.org/)
-* [Ring](https://github.com/ring-clojure/ring)
-* [Compojure](https://github.com/weavejester/compojure)
-* [Core.cache](https://github.com/clojure/core.cache)
-* [Apache Tika Translate](https://github.com/apache/tika)
-* [Clj-xpath](https://github.com/kyleburton/clj-xpath)
-* [codox](https://github.com/weavejester/codox) - for documentation
+Take a look at [project.clj](./project.clj)

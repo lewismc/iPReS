@@ -74,7 +74,7 @@
 ;;
 ;;;;;;;;;;
 
-(def podaac-base-url "http://podaac.jpl.nasa.gov/ws/")
+(def podaac-base-url "https://podaac.jpl.nasa.gov/ws/")
 (def source-language "en")
 
 (defn- build-url
@@ -92,7 +92,12 @@
   "Builds an XPATH-accessible XML document from
   a given, formatted XML document."
   [xml]
-  (xpath/xml->doc xml))
+  ;; Avoids [Fatal Error] :1:10: DOCTYPE is disallowed when the feature 
+  ;; "http://apache.org/xml/features/disallow-doctype-decl" set to true.
+  ;; org.xml.sax.SAXParseException: DOCTYPE is disallowed when the feature 
+  ;; "http://apache.org/xml/features/disallow-doctype-decl" set to true.
+  (let [opts {:disallow-doctype-decl false}]
+    (try (xpath/xml->doc xml opts))))
 
 (defn- extract-root
   "Extracts the root of the XML document using an XPATH query."
