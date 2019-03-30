@@ -13,7 +13,7 @@
 ; See the License for the specific language governing permissions and
 ; limitations under the License.
 
-(defproject app "0.1.0-SNAPSHOT"
+(defproject app "0.1.0"
             :description "iPReS Application"
              :license {:name "Apache License v2.0"
                            :url "http://www.apache.org/licenses/LICENSE-2.0"}
@@ -21,7 +21,7 @@
             :min-lein-version "2.9.1"
             :dependencies [[org.clojure/clojure "1.10.0"]
                            [compojure "1.6.1"]
-                           [ring/ring-json "0.4.0"]
+                           [ring/ring-json "0.4.0" :exclusions [cheshire]]
                            [org.clojure/core.cache "0.7.2"]
                            [org.apache.tika/tika-translate "1.20"]
                            [com.github.kyleburton/clj-xpath "1.4.11"]
